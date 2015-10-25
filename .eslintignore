@@ -1,0 +1,5 @@
+# ignore these files:
+
+./app/js/Readme.js
+./lib/farbtastic-jquery.js
+./lib/jquery.browser.support.js

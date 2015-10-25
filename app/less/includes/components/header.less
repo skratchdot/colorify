@@ -1,0 +1,40 @@
+/* customize header */
+.header {
+	margin-top: 20px;
+	.title {
+		color: @gray-dark;
+		margin-top: 0;
+		small {
+			text-transform: lowercase;
+		}
+	}
+	nav {
+		float: right;
+		ul {
+			display: inline-block;
+		}
+	}
+}
+
+
+@media (max-width: @screen-md-max) {
+	.header .title {
+		text-align: center;
+	}
+	.header nav {
+		float: none;
+		text-align: center;
+	}
+}
+
+@media (max-width: @screen-sm-max) {
+	.header .title small {
+		display: block;
+	}
+}
+
+@media (max-width: @screen-xs-max) {
+	.header .nav li {
+		font-size: 10px;
+	}
+}

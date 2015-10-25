@@ -1,0 +1,129 @@
+.page-Stats {
+	h3, h4, h5 {
+		.title;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.spacer {
+		height: 8px;
+		overflow: hidden;
+	}
+	.well {
+		padding-bottom: 0px;
+	}
+	hr {
+		border: 1px solid black;
+	}
+	circle {
+		cursor: crosshair;
+	}
+	path {
+		opacity: 1;
+	}
+	circle.selected, line.selected {
+		stroke: #000;
+		stroke-width: 1;
+		fill: rgba(227, 227, 227, 0.5);
+	}
+	circle.scheme, line.scheme {
+		stroke: #666;
+		stroke-width: 0.5;
+		fill: rgba(227, 227, 227, 0.5);
+	}
+	circle.hover, line.hover {
+		stroke: #e3e3e3;
+		stroke-width: 1;
+		fill: rgba(0, 0, 0, 0.5);
+	}
+	.stat-display {
+		border: 1px solid #ccc;
+		border-radius: 6px;
+		padding: 20px;
+		height: 470px;
+		overflow: auto;
+		background: #fff;
+		.page-header {
+			margin-bottom: 10px;
+		}
+	}
+	.tile-container {
+		.alpha-background;
+		margin-bottom: 10px;
+		.tile {
+			height: 40px;
+			border-top: 1px solid #333;
+			border-bottom: 1px solid #333;
+			border-right: 1px solid #333;
+			display: inline-block;
+			cursor: pointer;
+			.no-select;
+		}
+		.tile:first-child {
+			border-left: 1px solid #333;
+		}
+	}
+	/* this is important for the mouse up/down/move behavior of the color wheel */
+	#color-wheel-container {
+		* {
+			.no-select;
+		}
+	}
+	#scheme-buttons {
+		margin: '10px auto';
+		.btn {
+			margin: 1px;
+		}
+	}
+	input[type="color"] {
+		padding: 2px;
+	}
+	.range-thumb {
+		border:1px solid #000;
+		border-radius: 5px;
+		background: rgba(227, 227, 227, 0.5);
+		height:45px;
+		width: 5px;
+	}
+	.color-rect {
+		position: relative;
+		height: 50px;
+		margin-bottom: 5px;
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+		.color-rect-box {
+			position: absolute;
+			top: 8px;
+			left: 0;
+			width: 100%;
+			height: 34px;
+		}
+		.color-rect-alpha {
+			.alpha-background;
+			.color-rect-box;
+		}
+		input[type="range"] {
+			-webkit-appearance: none;
+			.color-rect-box;
+			cursor:  crosshair;
+			border: 1px solid #000;
+			&::-moz-range-thumb {
+				-moz-appearance: none !important;
+				.range-thumb;
+			}
+			&::-webkit-slider-thumb {
+				-webkit-appearance: none !important;
+				.range-thumb;
+			}
+			&::-moz-range-track {
+				-moz-appearance: none;
+				background:transparent;
+				border:0;
+			}
+			&:focus, &:active {
+				outline: none;
+			}
+		}
+	}
+}

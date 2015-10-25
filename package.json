@@ -1,0 +1,112 @@
+{
+  "name": "colorify",
+  "description": "a collection of color tools",
+  "version": "0.2.0",
+  "homepage": "https://github.com/skratchdot/colorify",
+  "author": {
+    "name": "skratchdot",
+    "email": "git@skratchdot.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/skratchdot/colorify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skratchdot/colorify/issues"
+  },
+  "license": "MIT",
+  "bin": {
+    "colorify": "./lib/cli.js"
+  },
+  "main": "./lib/colorify",
+  "engines": {
+    "node": ">= 4.2.0"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "color": "^0.10.1",
+    "color-blind": "^0.1.1",
+    "color-harmony": "^0.3.0",
+    "color-quantize": "^0.1.1",
+    "color-scheme": "0.0.5",
+    "color-stats": "^0.5.0",
+    "colorconverter": "^0.1.1",
+    "colorname": "^1.2.0",
+    "commander": "^2.8.1",
+    "cycle": "^1.0.3",
+    "jsonfn": "^0.31.0",
+    "object-path-get": "0.0.2",
+    "onecolor": "^2.5.0",
+    "random-seed": "^0.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "babel-eslint": "^4.1.3",
+    "babel-loader": "^5.3.2",
+    "bootstrap": "^3.3.5",
+    "eslint": "^1.7.3",
+    "eslint-plugin-react": "^3.6.3",
+    "file-loader": "^0.8.4",
+    "font-awesome": "^4.4.0",
+    "gulp": "^3.9.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-eslint": "^1.0.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-less": "^3.0.3",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-size": "^2.0.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "history": "^1.12.5",
+    "jquery": "^2.1.4",
+    "json-loader": "^0.5.3",
+    "lodash.throttle": "^3.0.4",
+    "marked": "^0.3.5",
+    "react": "^0.14.0",
+    "react-bootstrap": "^0.27.2",
+    "react-dom": "^0.14.0",
+    "react-hot-loader": "^1.3.0",
+    "react-router": "^1.0.0-rc3",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1",
+    "worker-loader": "^0.6.0"
+  },
+  "keywords": [
+    "color",
+    "colour",
+    "theory",
+    "harmony",
+    "harmonies",
+    "schemes",
+    "scales",
+    "shades",
+    "tints",
+    "tones",
+    "analogous",
+    "complementary",
+    "triadic",
+    "tetradic",
+    "rgb",
+    "rgba",
+    "hsl",
+    "hsla",
+    "hsv",
+    "hsva",
+    "cmyk",
+    "xyz",
+    "websafe",
+    "websmart",
+    "blindness",
+    "simulation",
+    "protanomaly",
+    "protanopia",
+    "deuteranomaly",
+    "deuteranopia",
+    "tritanomaly",
+    "tritanopia",
+    "achromatomaly",
+    "achromatopsia"
+  ]
+}

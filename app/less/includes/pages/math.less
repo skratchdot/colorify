@@ -1,0 +1,55 @@
+.page-Math {
+	.color-controls {
+		input[type="color"] {
+			width: 100%;
+			margin: 5px 0;
+		}
+		.btn {
+			width: 100%;
+			margin-bottom: 5px;
+		}
+	}
+	.math-header-row {
+		text-align: center;
+		font-weight: bold;
+		@media (max-width: @screen-sm-max) {
+			.col-xs-1 {
+				padding: 0px;
+			}
+		}
+		@media (max-width: @screen-xs-max) {
+			font-size: 8px;
+		}
+	}
+	.type-splitter {
+		margin: 10px;
+	}
+	.type-label {
+		margin: 0;
+		text-align: right;
+		.on {
+			font-weight: bold;
+		}
+		.off {
+			color: #777;
+			font-weight: normal;
+		}
+		@media (max-width: @screen-xs-max) {
+			text-align: center;
+		}
+	}
+	.math-table-container {
+		position: relative;
+		height: 0;
+		overflow: visible;
+		.math-table {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 220px;
+			td, th {
+				text-align: center;
+			}
+		}
+	}
+}
