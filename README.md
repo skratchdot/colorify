@@ -38,7 +38,9 @@ Options:
 
   -h, --help     output usage information
   -v, --version  output the version number
+```
 
+```bash
 > colorify random --help
 
   Usage: random [options]
@@ -49,7 +51,9 @@ Options:
 
     -h, --help             output usage information
     -f, --format <format>  css format types: hex, rgb, percent, hsl, hwb
+```
 
+```bash
 > colorify stats --help
 
   Usage: stats [options] [color]
@@ -60,22 +64,36 @@ Options:
 
     -h, --help         output usage information
     -p, --path <path>  only show the specified path (i.e. schemes.tetradic.2)
-
 ```
 
 #### Examples
 
 ```bash
 $ colorify random
+```
+
+```bash
 #E13954
 $ colorify random
 #A8A3E5
+```
+
+```bash
 $ colorify random -f rgb
 rgba(137, 102, 186, 0.64)
+```
+
+```bash
 $ colorify stats --path "hex" "orange"
 #ffa500
+```
+
+```bash
 $ colorify stats --path "websafe" "orange"
 #ff9900
+```
+
+```bash
 $ colorify stats red
   "lib": {
     "onecolor": {
@@ -482,20 +500,20 @@ console.log(Object.keys(colorify.lib)); // outputs:
 
 ### Clone the Project
 
-```
+```bash
 git clone https://github.com/skratchdot/colorify.git
 cd colorify
 ```
 
 ### Install the Dependencies
 
-```
+```bash
 npm install
 ```
 
 ### Run the Application (and watch for changes)
 
-```
+```bash
 gulp
 ```
 
