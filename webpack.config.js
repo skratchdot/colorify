@@ -1,11 +1,11 @@
 module.exports = {
-    context: __dirname + '/app/js',
+    context: `${__dirname}/app/js`,
     entry: {
         javascript: ['./App.js']
     },
     output: {
         filename: 'app.js',
-        path: __dirname + '/build/dev/colorify/js'
+        path: `${__dirname}/build/dev/colorify/js`
     },
     plugins: [],
     module: {
@@ -13,12 +13,12 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loaders: ['react-hot', 'babel-loader'],
+                loaders: ['react-hot', 'babel-loader']
             },
             {
-            	test: /\.json$/,
-            	loader: 'json?name=[name].[ext]'
+              test: /\.json$/,
+              loader: 'json?name=[name].[ext]'
             }
-        ],
-    },
-}
+        ]
+    }
+};
