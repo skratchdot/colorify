@@ -1,4 +1,5 @@
 import React from 'react';
+import ColorSpaces from './ColorSpaces';
 import Tiles from './Tiles';
 import helpers from './helpers.js';
 import throttle from 'lodash.throttle';
@@ -43,6 +44,8 @@ module.exports = React.createClass({
 		const schemes = this.buildSchemes();
 		return (
 			<div className="stat-display">
+				<h3 className="page-header">Color Spaces</h3>
+				<ColorSpaces stats={this.props.stats} />
 				<h3 className="page-header">Websafe / Websmart</h3>
 				<Tiles alpha={this.props.stats.alpha} scheme={[this.props.stats.websafe, this.props.stats.websmart]} onColorChange={this.props.onColorChange} />
 				<h3 className="page-header">Tints</h3>
