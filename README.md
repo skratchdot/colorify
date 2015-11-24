@@ -544,7 +544,7 @@ Now browse to the app at [http://localhost:8080/colorify](http://localhost:8080/
 - [UI Gradients](http://uigradients.com)
 - [Random CSS Gradient Generator](http://paintbycode.github.io/gradient-generator/)
 - [draGGradients](http://elrumordelaluz.github.io/draGGradients/)
-- [http://bada55.io](bada55.io)
+- [bada55.io](http://bada55.io/)
 - [4096 Color Wheel](http://www.ficml.org/jemimap/style/color/wheel.html)
 - [AllProfitAllFree - Color Wheel](http://allprofitallfree.com/color-wheel2.html)
 - [Color Wheel & Color Scheme Generator](http://design.geckotribe.com/colorwheel/)
