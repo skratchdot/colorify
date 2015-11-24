@@ -12,7 +12,7 @@ module.exports = React.createClass({
 		const close = () => this.setState({ show: false});
 		const open = () => this.setState({ show: true});
 		const title = `JSON Color Stats - ${this.props.stats.hex}`;
-		const json = JSON.stringify(this.props.stats, null, '\t');
+		const json = JSON.stringify(this.props.stats, null, '  ');
 		const style = {height: '400px'};
 		return (
 			<div>
