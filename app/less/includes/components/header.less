@@ -8,33 +8,32 @@
 			text-transform: lowercase;
 		}
 	}
-	nav {
+	ul.nav {
 		float: right;
-		ul {
-			display: inline-block;
-		}
+		display: inline-block;
 	}
 }
 
 
 @media (max-width: @screen-md-max) {
-	.header .title {
-		text-align: center;
-	}
-	.header nav {
-		float: none;
+	.header {
 		text-align: center;
 	}
 }
 
 @media (max-width: @screen-sm-max) {
-	.header .title small {
-		display: block;
+	.header {
+		.title small {
+			display: block;
+		}
+		ul.nav {
+			float: none;
+		}
 	}
 }
 
 @media (max-width: @screen-xs-max) {
-	.header .nav li {
+	.header ul.nav li {
 		font-size: 10px;
 	}
 }
