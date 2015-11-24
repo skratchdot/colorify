@@ -4,6 +4,7 @@ import SocialButtons from './SocialButtons';
 
 module.exports = React.createClass({
 	render: function () {
+		const fullYear = (new Date()).getFullYear();
 		return (
 			<div>
 				<Row>
@@ -11,7 +12,7 @@ module.exports = React.createClass({
 				</Row>
 				<Row className="footer">
 					<Col md={6} className="copyright">
-						&copy; Copyright 2014 &nbsp;
+						&copy; Copyright {fullYear} &nbsp;
 						<a href="http://skratchdot.com">skratchdot.com</a>
 					</Col>
 					<Col md={6} className="social">
