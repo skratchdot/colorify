@@ -70,10 +70,10 @@ Options:
 
 ```bash
 $ colorify random
+#E13954
 ```
 
 ```bash
-#E13954
 $ colorify random
 #A8A3E5
 ```
