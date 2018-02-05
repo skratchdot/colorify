@@ -561,6 +561,7 @@ Now browse to the app at [http://localhost:8080/colorify](http://localhost:8080/
 - [CSS Colours](http://colours.neilorangepeel.com/)
 - [HTML Color Codes](http://htmlcolorcodes.com/)
 - [Color Matters](http://www.colormatters.com/)
+- [I Want HUE](http://tools.medialab.sciences-po.fr/iwanthue/)
 
 ***Have a link to share? Submit a [pull request](https://github.com/skratchdot/colorify/pulls) to add to this list.***
 
