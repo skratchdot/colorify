@@ -1,9 +1,12 @@
-import colorify from '../../../lib/colorify';
+import * as colorify from '../../../lib/colorify';
 const combinationFunctionNames = colorify.getCombinationFunctionNames();
-const getFlags = function () {
+const getFlags = function() {
   const ret = [];
   for (let i = 7; i > 0; i--) {
-    const flags = i.toString(2).split('').map(parseFloat);
+    const flags = i
+      .toString(2)
+      .split('')
+      .map(parseFloat);
     while (flags.length < 3) {
       flags.unshift(0);
     }
@@ -11,14 +14,14 @@ const getFlags = function () {
   }
   return ret;
 };
-const getValues = function (color1, color2, fnName) {
+const getValues = function(color1, color2, fnName) {
   const regex = /^.*\(([^,]+),([^,]+),([^,]+)(.*\).*)$/;
-  const values1 = (color1[fnName]()).match(regex);
-  const values2 = (color2[fnName]()).match(regex);
+  const values1 = color1[fnName]().match(regex);
+  const values2 = color2[fnName]().match(regex);
   return [values1, values2];
 };
 
-require('./last-in-worker-helper')(function (hex1, hex2, farbtasticSetColor) {
+require('./last-in-worker-helper')(function(hex1, hex2, farbtasticSetColor) {
   const data = {
     hex1: hex1,
     hex2: hex2,
@@ -34,16 +37,16 @@ require('./last-in-worker-helper')(function (hex1, hex2, farbtasticSetColor) {
   data.rgbaString2 = libColor2.rgbaString();
   data.valuesRGB = getValues(libColor1, libColor2, 'rgbString');
   data.valuesHSL = getValues(libColor1, libColor2, 'hslString');
-  ['RGB', 'HSL'].map(function (colorSpace) {
+  ['RGB', 'HSL'].map(function(colorSpace) {
     data[colorSpace] = [];
-    getFlags().forEach(function (flags) {
+    getFlags().forEach(function(flags) {
       const row = {
         flags: flags,
         type: colorSpace,
         labels: colorSpace.split(''),
         cols: []
       };
-      combinationFunctionNames.map(function (fnName) {
+      combinationFunctionNames.map(function(fnName) {
         const color = colorify.combineColors(
           color1,
           color2,
