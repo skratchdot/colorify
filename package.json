@@ -20,7 +20,7 @@
   },
   "main": "./lib/colorify",
   "engines": {
-    "node": ">= 4.2.0"
+    "node": ">= 6"
   },
   "scripts": {
     "build": "npm-run-all clean format lint webpack",
