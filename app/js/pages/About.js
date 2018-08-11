@@ -1,18 +1,18 @@
 import React from 'react';
 import { Row, Col, Well } from 'react-bootstrap';
 import Page from '../Page';
-import readme from '../Readme';
+import { main, links } from '../Readme';
 
 module.exports = React.createClass({
-  render: function () {
+  render: function() {
     return (
       <Page pageName="About">
         <Row>
           <Col md={8}>
-            <Well dangerouslySetInnerHTML={{__html: readme.main}} />
+            <Well dangerouslySetInnerHTML={{ __html: main }} />
           </Col>
           <Col md={4}>
-            <Well dangerouslySetInnerHTML={{__html: readme.links}} />
+            <Well dangerouslySetInnerHTML={{ __html: links }} />
           </Col>
         </Row>
       </Page>

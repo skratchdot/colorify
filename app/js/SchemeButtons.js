@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import helpers from './helpers.js';
+import { friendlyName } from './helpers.js';
 
 module.exports = React.createClass({
   handleSchemeChange: function(scheme) {
@@ -38,7 +38,7 @@ module.exports = React.createClass({
             data-scheme={schemeName}
             onClick={this.handleSchemeChange.bind(null, schemeName)}
           >
-            {helpers.friendlyName(schemeName)}
+            {friendlyName(schemeName)}
           </Button>
         );
       }

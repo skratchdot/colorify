@@ -1,7 +1,7 @@
-module.exports = function(InputWorker, handler) {
+module.exports = function(workerPath, handler) {
   return (function() {
     const api = {};
-    const worker = new InputWorker();
+    const worker = new Worker(workerPath);
     let isExecuting = false;
     let pendingJob;
     let numPosts = 0;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ColorSpaces from './ColorSpaces';
 import Tiles from './Tiles';
-import helpers from './helpers.js';
+import { friendlyName } from './helpers.js';
 import throttle from 'lodash.throttle';
 const throttleTime = 50;
 
@@ -30,7 +30,7 @@ module.exports = React.createClass({
         scheme = this.props.stats.schemes[schemeName];
         // add to scheme list
         schemes.push(
-          <h5 key={`name-${schemeName}`}>{helpers.friendlyName(schemeName)}</h5>
+          <h5 key={`name-${schemeName}`}>{friendlyName(schemeName)}</h5>
         );
         schemes.push(
           <Tiles

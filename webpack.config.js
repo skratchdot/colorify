@@ -1,25 +1,99 @@
 /* globals __dirname */
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const history = require('connect-history-api-fallback');
+const convert = require('koa-connect');
+
 module.exports = {
-  context: `${__dirname}/app/js`,
+  context: path.resolve(__dirname, 'app/js'),
   entry: {
-    javascript: ['./App.js']
+    'js/app': path.resolve(__dirname, 'app/js/App.js'),
+    'css/app': path.resolve(__dirname, 'app/less/app.less'),
+    'workers/worker-math': path.resolve(
+      __dirname,
+      'app/js/workers/worker-math.js'
+    )
   },
   output: {
-    filename: 'app.js',
-    path: `${__dirname}/build/dev/colorify/js`
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/colorify/',
+    filename: '[name].bundle.js',
+    globalObject: 'this'
   },
-  plugins: [],
+  serve: {
+    add: (app, middleware, options) => {
+      const historyOptions = {
+        // ... see: https://github.com/bripkens/connect-history-api-fallback#options
+        index: '/colorify/index.html',
+        verbose: true
+      };
+      app.use(convert(history(historyOptions)));
+    },
+    devMiddleware: {
+      publicPath: '/colorify/'
+    }
+  },
+
   module: {
-    loaders: [
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      { test: /\.md$/, loader: 'raw-loader' },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: ['react-hot', 'babel-loader']
-      },
-      {
-        test: /\.json$/,
-        loader: 'json?name=[name].[ext]'
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          { loader: 'css-loader', options: { url: false } },
+          {
+            loader: 'less-loader',
+            options: {
+              relativeUrls: false,
+              paths: [path.resolve(__dirname)]
+            }
+          }
+        ]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'app/index.html'),
+      inject: false
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'app/index.html'),
+      filename: '404.html',
+      inject: false
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'node_modules/bootstrap/dist/fonts/*'),
+        to: path.resolve(__dirname, 'build/fonts/'),
+        flatten: true
+      },
+      {
+        from: path.resolve(__dirname, 'node_modules/font-awesome/fonts/*'),
+        to: path.resolve(__dirname, 'build/fonts/'),
+        flatten: true
+      },
+      {
+        from: path.resolve(__dirname, 'app/img/**/*'),
+        to: path.resolve(__dirname, 'build/img/')
+      },
+      {
+        from: path.resolve(__dirname, 'app/svg/**/*'),
+        to: path.resolve(__dirname, 'build/svg/')
+      },
+      {
+        from: path.resolve(__dirname, 'app/favicon.ico'),
+        to: path.resolve(__dirname, 'build/')
+      }
+    ]),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    })
+  ]
 };

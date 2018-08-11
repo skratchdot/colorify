@@ -1,74 +1,81 @@
-html, body {
-	background-image: radial-gradient(circle farthest-corner at center center , #fff 0px, #fbfefe 100%);
+html,
+body {
+  background-image: radial-gradient(
+    circle farthest-corner at center center,
+    #fff 0px,
+    #fbfefe 100%
+  );
 }
 
 /* show this when our app is loading */
 #app-loading {
-	width: 100%;
-	text-align: center;
-	background: url('../img/ajax-loader.gif') no-repeat center 40px;
-	padding-top: 100px;
-	color: #ccc;
+  width: 100%;
+  text-align: center;
+  background: url('../img/ajax-loader.gif') no-repeat center 40px;
+  padding-top: 100px;
+  color: #ccc;
 }
 
 .brand-font {
-	font-family: Lato, Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans serif;
+  font-family: Lato, Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal,
+    'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', sans serif;
 }
 
 .no-select {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .title {
-	.brand-font;
-	text-transform: uppercase;
+  .brand-font;
+  text-transform: uppercase;
 }
 
 .alpha-background {
-	background-image: url('../img/alpha-background.png');
-	background-repeat: repeat;
-	background-position: center center;
+  background-image: url('../img/alpha-background.png');
+  background-repeat: repeat;
+  background-position: center center;
 }
 
 .color-stripe {
-	background: linear-gradient(to right,
-		hsl(0, 100%, 50%) 0.00%,
-		hsl(30, 100%, 50%) 8.33%,
-		hsl(60, 100%, 50%) 16.67%,
-		hsl(90, 100%, 50%) 25.00%,
-		hsl(120, 100%, 50%) 33.33%,
-		hsl(150, 100%, 50%) 41.67%,
-		hsl(180, 100%, 50%) 50.00%,
-		hsl(210, 100%, 50%) 58.33%,
-		hsl(240, 100%, 50%) 66.67%,
-		hsl(270, 100%, 50%) 75.00%,
-		hsl(300, 100%, 50%) 83.33%,
-		hsl(330, 100%, 50%) 91.67%,
-		hsl(360, 100%, 50%) 100.00%
-	);
-	margin-top: 5px;
-	margin-bottom: 20px;
-	height: 5px;
-	overflow: hidden;
+  background: linear-gradient(
+    to right,
+    hsl(0, 100%, 50%) 0%,
+    hsl(30, 100%, 50%) 8.33%,
+    hsl(60, 100%, 50%) 16.67%,
+    hsl(90, 100%, 50%) 25%,
+    hsl(120, 100%, 50%) 33.33%,
+    hsl(150, 100%, 50%) 41.67%,
+    hsl(180, 100%, 50%) 50%,
+    hsl(210, 100%, 50%) 58.33%,
+    hsl(240, 100%, 50%) 66.67%,
+    hsl(270, 100%, 50%) 75%,
+    hsl(300, 100%, 50%) 83.33%,
+    hsl(330, 100%, 50%) 91.67%,
+    hsl(360, 100%, 50%) 100%
+  );
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 5px;
+  overflow: hidden;
 }
 
 .squares {
-	background-image: url('../img/gradient_squares.png');
-	background-repeat: repeat;
-	background-position: center center;
+  background-image: url('../img/gradient_squares.png');
+  background-repeat: repeat;
+  background-position: center center;
 }
 
-.jumbotron, .well {
-	border-style: solid;
-	border-color: @brand-primary;
-	border-width: 3px;
-	border-radius: 10px;
-	box-shadow: 10px 10px 5px #888888;
-	.squares;
+.jumbotron,
+.well {
+  border-style: solid;
+  border-color: @brand-primary;
+  border-width: 3px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #888888;
+  .squares;
 }
-
