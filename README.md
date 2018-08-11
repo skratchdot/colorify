@@ -19,7 +19,7 @@ a few **toy apps** that can manipulate and display colors.
 ### 2. Command Line Tool
 
 The cli can be installed by running `npm install -g colorify`. This will
-add `colorify` to your PATH.  For the command line options, you can run
+add `colorify` to your PATH. For the command line options, you can run
 `colorify --help`:
 
 ```bash
@@ -469,20 +469,21 @@ included are:
 - [onecolor](https://github.com/One-com/one-color)
 
 You can install the library by running `npm install colorify` and use it:
+
 ```javascript
 var colorify = require('colorify');
 console.log(Object.keys(colorify.lib)); // outputs:
-                                        // [
-                                        //   'color',
-                                        //   'colorBlind',
-                                        //   'colorHarmony',
-                                        //   'colorQuantize',
-                                        //   'colorScheme',
-                                        //   'colorStats',
-                                        //   'colorConverter',
-                                        //   'colorName',
-                                        //   'onecolor'
-                                        // ]
+// [
+//   'color',
+//   'colorBlind',
+//   'colorHarmony',
+//   'colorQuantize',
+//   'colorScheme',
+//   'colorStats',
+//   'colorConverter',
+//   'colorName',
+//   'onecolor'
+// ]
 ```
 
 #### Other js libs to check out
@@ -494,7 +495,6 @@ console.log(Object.keys(colorify.lib)); // outputs:
 #### Source Code
 
 - [Source Code on Github](https://github.com/skratchdot/colorify)
-
 
 ## For Developers
 
@@ -518,7 +518,6 @@ gulp
 ```
 
 Now browse to the app at [http://localhost:8080/colorify](http://localhost:8080/colorify)
-
 
 ## Other Links / Tools
 
@@ -566,8 +565,7 @@ Now browse to the app at [http://localhost:8080/colorify](http://localhost:8080/
 - [CSS Gradient](https://cssgradient.io/)
 - [Color: From Hexcodes to Eyeballs](http://jamie-wong.com/post/color/)
 
-***Have a link to share? Submit a [pull request](https://github.com/skratchdot/colorify/pulls) to add to this list.***
-
+**_Have a link to share? Submit a [pull request](https://github.com/skratchdot/colorify/pulls) to add to this list._**
 
 ## License
 

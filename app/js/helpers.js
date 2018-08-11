@@ -1,4 +1,4 @@
-exports.friendlyName = function(str) {
+export function friendlyName(str) {
   // capitalize first letter
   str = str.charAt(0).toUpperCase() + str.slice(1);
   // split capitals
@@ -8,4 +8,4 @@ exports.friendlyName = function(str) {
   // CW
   str = str.replace('CW', '(Clockwise)');
   return str;
-};
+}
