@@ -564,6 +564,8 @@ Now browse to the app at [http://localhost:8080/colorify](http://localhost:8080/
 - [Data Color Picker](https://learnui.design/tools/data-color-picker.html)
 - [CSS Gradient](https://cssgradient.io/)
 - [Color: From Hexcodes to Eyeballs](http://jamie-wong.com/post/color/)
+- [ColorBox](https://www.colorbox.io/)
+- [CodePen.io: Experimental Gradient Editor](https://codepen.io/meodai/full/xyqoEO/)
 
 **_Have a link to share? Submit a [pull request](https://github.com/skratchdot/colorify/pulls) to add to this list._**
 
