@@ -8,7 +8,7 @@
 	<title>Colorify by @skratchdot</title>
 	<link type="image/x-icon" rel="shortcut icon" href="/colorify/favicon.ico" />
 	<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700" />
-	<link type="text/css" rel="stylesheet" href="/colorify/css/app.css" />
+	<link type="text/css" rel="stylesheet" href="/colorify/css/app.css?<%= webpack.hash %>" />
 	<!--
 		  _                 _              _       _         _       _                 _
 		 | |               | |            | |     | |       | |     | |               | |
@@ -36,7 +36,7 @@
 		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
 	</script>
-	<script src="/colorify/js/app.bundle.js" async></script>
+	<script src="/colorify/js/app.bundle.js?<%= webpack.hash %>" async></script>
 </body>
 
 </html>
