@@ -571,6 +571,7 @@ Now browse to the app at [http://localhost:8080/colorify](http://localhost:8080/
 - [GradientsGuru](http://gradientsguru.com/)
 - [Eggradients](https://www.eggradients.com/)
 - [Web Gradients](https://webgradients.com/)
+- [Image Color Picker](https://image-color.com/)
 
 **_Have a link to share? Submit a [pull request](https://github.com/skratchdot/colorify/pulls) to add to this list._**
 
