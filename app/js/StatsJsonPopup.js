@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
 // Our custom component is managing whether the Modal is visible
-module.exports = React.createClass({
+export default React.createClass({
   getInitialState: function() {
     return {
       show: false

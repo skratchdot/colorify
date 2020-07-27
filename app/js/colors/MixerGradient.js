@@ -8,7 +8,7 @@ const getRgbCss = function (rgb, value, index) {
 		${index === 2 ? value : rgb[2]})`;
 };
 
-module.exports = React.createClass({
+export default React.createClass({
   getDefaultProps: function () {
     return {
       rgb1: [],

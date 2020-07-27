@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import SocialButtons from './SocialButtons';
 
-module.exports = React.createClass({
+export default React.createClass({
   render: function() {
     const fullYear = new Date().getFullYear();
     return (

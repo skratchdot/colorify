@@ -5,7 +5,7 @@ import { friendlyName } from './helpers.js';
 import throttle from 'lodash.throttle';
 const throttleTime = 50;
 
-module.exports = React.createClass({
+export default React.createClass({
   getInitialState: function() {
     const $this = this;
     return {

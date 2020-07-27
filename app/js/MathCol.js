@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Table, Popover } from 'react-bootstrap';
 import { History } from 'react-router';
 
-module.exports = React.createClass({
+export default React.createClass({
   mixins: [History],
   getDefaultProps: function() {
     return {

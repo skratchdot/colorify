@@ -31,7 +31,7 @@ const combinationFunctionNamesNormalized = combinationFunctionNames.map(
   }
 );
 
-module.exports = React.createClass({
+export default React.createClass({
   mixins: [History],
   getInitialState: function() {
     let color1;

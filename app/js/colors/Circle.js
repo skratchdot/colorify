@@ -10,7 +10,7 @@ const imagePattern = `
 	<image x="0" y="0" height="16" width="16" xlink:href="/colorify/img/alpha-background.png"></image>
 	</pattern>`;
 
-module.exports = React.createClass({
+export default React.createClass({
   componentDidMount: function() {
     document.addEventListener('mousedown', this.onMouseDown);
     document.addEventListener('mouseup', this.onMouseUp);

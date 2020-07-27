@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { friendlyName } from './helpers.js';
 
-module.exports = React.createClass({
+export default React.createClass({
   handleSchemeChange: function(scheme) {
     if (typeof this.props.onSchemeChange === 'function') {
       this.props.onSchemeChange(scheme);

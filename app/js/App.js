@@ -2,15 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
+import HomePage from './pages/Home';
+import AboutPage from './pages/About';
+import StatsPage from './pages/Stats';
+import MixerPage from './pages/Mixer';
+import MathPage from './pages/Math';
+import NotFoundPage from './pages/NotFound';
 
 // setup pages
 const pages = {
-  home: require('./pages/Home'),
-  about: require('./pages/About'),
-  stats: require('./pages/Stats'),
-  mixer: require('./pages/Mixer'),
-  math: require('./pages/Math'),
-  notFound: require('./pages/NotFound')
+  home: HomePage,
+  about: AboutPage,
+  stats: StatsPage,
+  mixer: MixerPage,
+  math: MathPage,
+  notFound: NotFoundPage
 };
 
 // setup app

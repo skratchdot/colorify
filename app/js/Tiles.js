@@ -2,7 +2,7 @@ import React from 'react';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import onecolor from 'onecolor';
 
-module.exports = React.createClass({
+export default React.createClass({
   handleColorChange: function(e) {
     if (this.props.onColorChange) {
       this.props.onColorChange(onecolor(e.target.style.backgroundColor));

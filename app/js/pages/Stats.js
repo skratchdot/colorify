@@ -17,7 +17,7 @@ const format = function (value, min, max, precision) {
   return parseFloat(((value * max) + min).toFixed(precision));
 };
 
-module.exports = React.createClass({
+export default React.createClass({
   mixins: [History],
   getInitialState: function () {
     const searchText = getPath(this.props.params, 'color', '');

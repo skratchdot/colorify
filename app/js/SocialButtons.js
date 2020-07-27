@@ -8,7 +8,7 @@ const SHB = require('../../lib/shb').getSocialButtonLib();
 const id = 'social-button-container';
 const title = 'Colorify: a collection of color tools';
 
-module.exports = React.createClass({
+export default React.createClass({
   componentDidMount: function() {
     SHB.build({
       elementID: id,

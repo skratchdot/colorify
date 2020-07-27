@@ -1,7 +1,7 @@
 import React from 'react';
 import onecolor from 'onecolor';
 
-module.exports = React.createClass({
+export default React.createClass({
   onColorChange: function (e) {
     if (this.props.onColorChange) {
       const color = onecolor(e.target.value);

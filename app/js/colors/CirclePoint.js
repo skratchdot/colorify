@@ -7,7 +7,7 @@ import onecolor from 'onecolor';
  */
 
 
-module.exports = React.createClass({
+export default React.createClass({
   render: function () {
     const className = this.props.type;
     const points = [];

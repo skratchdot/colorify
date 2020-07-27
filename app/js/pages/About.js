@@ -3,7 +3,7 @@ import { Row, Col, Well } from 'react-bootstrap';
 import Page from '../Page';
 import { main, links } from '../Readme';
 
-module.exports = React.createClass({
+export default React.createClass({
   render: function() {
     return (
       <Page pageName="About">

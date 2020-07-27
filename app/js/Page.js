@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import GithubCorner from './GithubCorner';
 
-module.exports = React.createClass({
+export default React.createClass({
   render: function() {
     return (
       <div className={`page-${this.props.pageName}`}>

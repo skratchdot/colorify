@@ -1,4 +1,6 @@
 import * as colorify from '../../../lib/colorify';
+import lastInWorkerHelper from './last-in-worker-helper';
+
 const combinationFunctionNames = colorify.getCombinationFunctionNames();
 const getFlags = function() {
   const ret = [];
@@ -21,7 +23,7 @@ const getValues = function(color1, color2, fnName) {
   return [values1, values2];
 };
 
-require('./last-in-worker-helper')(function(hex1, hex2, farbtasticSetColor) {
+lastInWorkerHelper(function(hex1, hex2, farbtasticSetColor) {
   const data = {
     hex1: hex1,
     hex2: hex2,

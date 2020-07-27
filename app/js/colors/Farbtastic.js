@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from '../../../lib/farbtastic-jquery';
 
-module.exports = React.createClass({
+export default React.createClass({
   getDefaultProps: function () {
     return {
       width: 130,

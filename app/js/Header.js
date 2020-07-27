@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Row, Col, Nav } from 'react-bootstrap';
 
-module.exports = React.createClass({
+export default React.createClass({
   isLinkActive: function(name) {
     return this.props.active === name ? 'active' : '';
   },

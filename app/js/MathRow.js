@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import MathCol from './MathCol';
 
-module.exports = React.createClass({
+export default React.createClass({
   getDefaultProps: function() {
     return {
       type: 'RGB',

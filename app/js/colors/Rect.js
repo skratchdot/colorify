@@ -12,7 +12,7 @@ const values = {
   a: ['rgb', '_alpha', 2]
 };
 
-module.exports = React.createClass({
+export default React.createClass({
   handleRange: function (e) {
     let newColor;
     const type = this.props.type;

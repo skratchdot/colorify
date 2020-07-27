@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 
-module.exports = React.createClass({
+export default React.createClass({
   getDefaultProps: function() {
     return {
       rgbaString: 'rgba(255, 255, 255, 0)',

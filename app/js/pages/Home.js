@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import {Row, Col, Well, Jumbotron} from 'react-bootstrap';
 import Page from '../Page';
 
-module.exports = React.createClass({
+export default React.createClass({
   render: function () {
     return (
       <Page pageName="Home">

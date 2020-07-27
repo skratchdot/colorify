@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Table } from 'react-bootstrap';
 import getPath from 'object-path-get';
 
-module.exports = React.createClass({
+export default React.createClass({
   getDefaultProps: function() {
     return {
       stats: {}

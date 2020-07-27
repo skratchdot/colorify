@@ -1,5 +1,5 @@
 /*globals self */
-module.exports = function(fn) {
+export default function(fn) {
   if (typeof fn !== 'function') {
     fn = function() {};
   }

@@ -1,4 +1,4 @@
-module.exports = function(workerPath, handler) {
+export default function(workerPath, handler) {
   return (function() {
     const api = {};
     const worker = new Worker(workerPath);
