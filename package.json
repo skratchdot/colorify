@@ -26,7 +26,7 @@
     "build": "npm-run-all clean format lint webpack",
     "clean": "rimraf build",
     "deploy": "npm run build && gh-pages -d build",
-    "format": "prettier --write *.* .eslintrc.js app/**/*.js lib/**/*.js",
+    "format": "prettier --write *.* .eslintrc.js src/**/*.js",
     "lint": "eslint .",
     "start": "webpack-serve --open-path 'colorify/'",
     "test": "echo 'currently no tests'",

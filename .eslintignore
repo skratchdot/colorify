@@ -2,6 +2,6 @@
 
 _ignore/
 build/
-app/js/Readme.js
-lib/farbtastic-jquery.js
-lib/jquery.browser.support.js
+src/app/js/Readme.js
+src/lib/farbtastic-jquery.js
+src/lib/jquery.browser.support.js

@@ -7,13 +7,13 @@ const history = require('connect-history-api-fallback');
 const convert = require('koa-connect');
 
 module.exports = {
-  context: path.resolve(__dirname, 'app/js'),
+  context: path.resolve(__dirname, 'src/app/js'),
   entry: {
-    'js/app': path.resolve(__dirname, 'app/js/App.js'),
-    'css/app': path.resolve(__dirname, 'app/less/app.less'),
+    'js/app': path.resolve(__dirname, 'src/app/js/App.js'),
+    'css/app': path.resolve(__dirname, 'src/app/less/app.less'),
     'workers/worker-math': path.resolve(
       __dirname,
-      'app/js/workers/worker-math.js'
+      'src/app/js/workers/worker-math.js'
     ),
   },
   output: {
@@ -60,11 +60,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'app/index.html'),
+      template: path.resolve(__dirname, 'src/app/index.html'),
       inject: false,
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'app/index.html'),
+      template: path.resolve(__dirname, 'src/app/index.html'),
       filename: '404.html',
       inject: false,
     }),
@@ -80,15 +80,15 @@ module.exports = {
         flatten: true,
       },
       {
-        from: path.resolve(__dirname, 'app/img/**/*'),
+        from: path.resolve(__dirname, 'src/app/img/**/*'),
         to: path.resolve(__dirname, 'build/img/'),
       },
       {
-        from: path.resolve(__dirname, 'app/svg/**/*'),
+        from: path.resolve(__dirname, 'src/app/svg/**/*'),
         to: path.resolve(__dirname, 'build/svg/'),
       },
       {
-        from: path.resolve(__dirname, 'app/favicon.ico'),
+        from: path.resolve(__dirname, 'src/app/favicon.ico'),
         to: path.resolve(__dirname, 'build/'),
       },
     ]),

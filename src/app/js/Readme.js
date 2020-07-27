@@ -1,4 +1,4 @@
-import readmeText from '../../README.md';
+import readmeText from '../../../README.md';
 import marked from 'marked';
 
 const linkIndexStart = /\n## Other Links/.exec(readmeText).index;
