@@ -17,7 +17,7 @@ module.exports = {
     ),
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'build/app'),
     publicPath: '/colorify/',
     filename: '[name].bundle.js',
     globalObject: 'this',
@@ -71,25 +71,25 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, 'node_modules/bootstrap/dist/fonts/*'),
-        to: path.resolve(__dirname, 'build/fonts/'),
+        to: path.resolve(__dirname, 'build/app/fonts/'),
         flatten: true,
       },
       {
         from: path.resolve(__dirname, 'node_modules/font-awesome/fonts/*'),
-        to: path.resolve(__dirname, 'build/fonts/'),
+        to: path.resolve(__dirname, 'build/app/fonts/'),
         flatten: true,
       },
       {
         from: path.resolve(__dirname, 'src/app/img/**/*'),
-        to: path.resolve(__dirname, 'build/img/'),
+        to: path.resolve(__dirname, 'build/app/img/'),
       },
       {
         from: path.resolve(__dirname, 'src/app/svg/**/*'),
-        to: path.resolve(__dirname, 'build/svg/'),
+        to: path.resolve(__dirname, 'build/app/svg/'),
       },
       {
         from: path.resolve(__dirname, 'src/app/favicon.ico'),
-        to: path.resolve(__dirname, 'build/'),
+        to: path.resolve(__dirname, 'build/app/'),
       },
     ]),
     new MiniCssExtractPlugin({
