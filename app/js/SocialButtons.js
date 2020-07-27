@@ -4,9 +4,11 @@
  *
  */
 import React from 'react';
-const SHB = require('../../lib/shb').getSocialButtonLib();
+import getSocialButtonLib from '../../lib/shb';
+
 const id = 'social-button-container';
 const title = 'Colorify: a collection of color tools';
+const SHB = getSocialButtonLib();
 
 export default React.createClass({
   componentDidMount: function () {

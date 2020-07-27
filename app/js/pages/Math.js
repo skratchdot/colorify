@@ -3,7 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { History } from 'react-router';
 import onecolor from 'onecolor';
 import getPath from 'object-path-get';
-import colorify from '../../../lib/colorify';
+import * as colorify from '../../../lib/colorify';
 import LastInWorker from '../workers/last-in-worker.js';
 import ColorSpaceTable from '../ColorSpaceTable';
 import MathRow from '../MathRow';
