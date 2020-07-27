@@ -16,14 +16,18 @@
   },
   "license": "MIT",
   "bin": {
-    "colorify": "./lib/cli.js"
+    "colorify": "./build/lib/cli.js"
   },
-  "main": "./lib/colorify",
+  "main": "./build/lib/colorify",
   "engines": {
     "node": ">= 6"
   },
+  "files": [
+    "build/lib/"
+  ],
   "scripts": {
-    "build": "npm-run-all clean format lint webpack",
+    "build": "npm-run-all clean format lint webpack build:lib",
+    "build:lib": "babel src/lib -d build/lib",
     "clean": "rimraf build",
     "deploy": "npm run build && gh-pages -d build/app",
     "format": "prettier --write *.* .eslintrc.js src/**/*.js",

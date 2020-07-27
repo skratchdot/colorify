@@ -4,7 +4,7 @@
 'use strict';
 const program = require('commander');
 const getPath = require('object-path-get');
-const appInfo = require('../package.json');
+const appInfo = require('../../package.json');
 const colorify = require('./colorify');
 const lib = colorify.lib;
 
