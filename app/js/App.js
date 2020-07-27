@@ -16,14 +16,14 @@ const pages = {
   stats: StatsPage,
   mixer: MixerPage,
   math: MathPage,
-  notFound: NotFoundPage
+  notFound: NotFoundPage,
 };
 
 // setup app
 const App = React.createClass({
   render() {
     return <div>{this.props.children}</div>;
-  }
+  },
 });
 
 // create and render routes

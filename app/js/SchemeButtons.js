@@ -3,12 +3,12 @@ import { Button } from 'react-bootstrap';
 import { friendlyName } from './helpers.js';
 
 export default React.createClass({
-  handleSchemeChange: function(scheme) {
+  handleSchemeChange: function (scheme) {
     if (typeof this.props.onSchemeChange === 'function') {
       this.props.onSchemeChange(scheme);
     }
   },
-  render: function() {
+  render: function () {
     const buttons = [];
     const schemes = this.props.stats.schemes;
     buttons.push(
@@ -44,5 +44,5 @@ export default React.createClass({
       }
     }
     return <div id="scheme-buttons">{buttons}</div>;
-  }
+  },
 });

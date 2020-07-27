@@ -3,25 +3,23 @@ import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import onecolor from 'onecolor';
 
 export default React.createClass({
-  handleColorChange: function(e) {
+  handleColorChange: function (e) {
     if (this.props.onColorChange) {
       this.props.onColorChange(onecolor(e.target.style.backgroundColor));
     }
   },
-  render: function() {
+  render: function () {
     const tiles = [];
     for (let i = 0; i < this.props.scheme.length; i++) {
       let hex;
       let color;
       hex = color = this.props.scheme[i];
       if (this.props.alpha < 1) {
-        color = onecolor(hex)
-          .alpha(this.props.alpha)
-          .cssa();
+        color = onecolor(hex).alpha(this.props.alpha).cssa();
       }
       const style = {
         width: `${100 / this.props.scheme.length}%`,
-        backgroundColor: color
+        backgroundColor: color,
       };
       const tooltip = (
         <Tooltip>
@@ -42,5 +40,5 @@ export default React.createClass({
       );
     }
     return <div className="tile-container">{tiles}</div>;
-  }
+  },
 });

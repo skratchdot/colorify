@@ -2,14 +2,14 @@ import React from 'react';
 import { Col } from 'react-bootstrap';
 
 export default React.createClass({
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
       rgbaString: 'rgba(255, 255, 255, 0)',
       label: '',
-      hex: '#000000'
+      hex: '#000000',
     };
   },
-  render: function() {
+  render: function () {
     const start = this.props.rgbaString;
     const end = this.props.rgbaString.replace('1)', '0.3)');
     return (
@@ -19,7 +19,7 @@ export default React.createClass({
             background: `linear-gradient(to top, ${start}, ${end})`,
             borderTopLeftRadius: '100px',
             borderTopRightRadius: '100px',
-            height: '20px'
+            height: '20px',
           }}
         >
           &nbsp;
@@ -28,7 +28,7 @@ export default React.createClass({
           style={{
             textAlign: 'center',
             border: `13px solid ${this.props.hex}`,
-            margin: 0
+            margin: 0,
           }}
         >
           <span style={{ whiteSpace: 'nowrap' }}>{this.props.label}</span>
@@ -41,12 +41,12 @@ export default React.createClass({
             borderBottomLeftRadius: '100px',
             borderBottomRightRadius: '100px',
             height: '20px',
-            marginBottom: '10px'
+            marginBottom: '10px',
           }}
         >
           &nbsp;
         </div>
       </Col>
     );
-  }
+  },
 });

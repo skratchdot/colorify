@@ -1,12 +1,12 @@
 import React from 'react';
 
 export default React.createClass({
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
-      href: '/'
+      href: '/',
     };
   },
-  render: function() {
+  render: function () {
     return (
       <a href={this.props.href} className="github-corner">
         <svg width="80" height="80" viewBox="0 0 250 250">
@@ -22,5 +22,5 @@ export default React.createClass({
         </svg>
       </a>
     );
-  }
+  },
 });

@@ -9,4 +9,4 @@ export default function(fn) {
   self.onerror = function() {
     self.postMessage(null);
   };
-};
+}

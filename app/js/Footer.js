@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import SocialButtons from './SocialButtons';
 
 export default React.createClass({
-  render: function() {
+  render: function () {
     const fullYear = new Date().getFullYear();
     return (
       <div>
@@ -24,5 +24,5 @@ export default React.createClass({
         <br />
       </div>
     );
-  }
+  },
 });

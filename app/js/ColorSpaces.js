@@ -3,12 +3,12 @@ import { Row, Col, Table } from 'react-bootstrap';
 import getPath from 'object-path-get';
 
 export default React.createClass({
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
-      stats: {}
+      stats: {},
     };
   },
-  render: function() {
+  render: function () {
     const spaces = getPath(this.props.stats, 'lib.colorConvert', {});
     const color = getPath(this.props.stats, 'lib.color', {});
     return (
@@ -96,5 +96,5 @@ export default React.createClass({
         </Col>
       </Row>
     );
-  }
+  },
 });

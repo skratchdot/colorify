@@ -9,7 +9,7 @@ const id = 'social-button-container';
 const title = 'Colorify: a collection of color tools';
 
 export default React.createClass({
-  componentDidMount: function() {
+  componentDidMount: function () {
     SHB.build({
       elementID: id,
       pref: {
@@ -17,7 +17,7 @@ export default React.createClass({
         url: 'http://projects.skratchdot.com/colorify',
         twitterName: 'skratchdot',
         desc: title,
-        title: title
+        title: title,
       },
       buttons: {
         fbLike: true,
@@ -30,16 +30,16 @@ export default React.createClass({
         customButton: {
           iconClass: 'fa-github',
           iconURL: 'https://github.com/skratchdot/colorify',
-          iconParams: {}
-        }
-      }
+          iconParams: {},
+        },
+      },
     });
   },
-  render: function() {
+  render: function () {
     return (
       <div id={id}>
         <strong>Share: &nbsp;</strong>
       </div>
     );
-  }
+  },
 });

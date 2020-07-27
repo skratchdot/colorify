@@ -3,12 +3,12 @@ import { Button, Modal } from 'react-bootstrap';
 
 // Our custom component is managing whether the Modal is visible
 export default React.createClass({
-  getInitialState: function() {
+  getInitialState: function () {
     return {
-      show: false
+      show: false,
     };
   },
-  render: function() {
+  render: function () {
     const close = () => this.setState({ show: false });
     const open = () => this.setState({ show: true });
     const title = `JSON Color Stats - ${this.props.stats.hex}`;
@@ -40,5 +40,5 @@ export default React.createClass({
         </Modal>
       </div>
     );
-  }
+  },
 });

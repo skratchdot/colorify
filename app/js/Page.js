@@ -5,7 +5,7 @@ import Footer from './Footer';
 import GithubCorner from './GithubCorner';
 
 export default React.createClass({
-  render: function() {
+  render: function () {
     return (
       <div className={`page-${this.props.pageName}`}>
         <Grid>
@@ -16,5 +16,5 @@ export default React.createClass({
         </Grid>
       </div>
     );
-  }
+  },
 });

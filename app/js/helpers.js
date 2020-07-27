@@ -1,4 +1,4 @@
-const friendlyName = str => {
+const friendlyName = (str) => {
   // capitalize first letter
   str = str.charAt(0).toUpperCase() + str.slice(1);
   // split capitals

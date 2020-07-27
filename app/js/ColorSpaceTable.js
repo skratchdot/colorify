@@ -3,13 +3,13 @@ import { Table } from 'react-bootstrap';
 import getPath from 'object-path-get';
 
 export default React.createClass({
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
       title: 'RGB',
-      values: []
+      values: [],
     };
   },
-  render: function() {
+  render: function () {
     return (
       <div className="math-table-container">
         <Table className="math-table">
@@ -40,5 +40,5 @@ export default React.createClass({
         </Table>
       </div>
     );
-  }
+  },
 });

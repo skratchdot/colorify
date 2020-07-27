@@ -4,31 +4,31 @@ import { History } from 'react-router';
 
 export default React.createClass({
   mixins: [History],
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
       type: '',
       flags: [1, 1, 1],
       on: '',
       off: '',
       fnName: '',
-      hex: '#000000'
+      hex: '#000000',
     };
   },
-  getInitialState: function() {
+  getInitialState: function () {
     return {
-      hover: false
+      hover: false,
     };
   },
-  handleClick: function() {
+  handleClick: function () {
     this.history.pushState(
       null,
       `/colorify/stats/${this.props.hex.replace('#', '')}`
     );
   },
-  handleHover: function(val) {
+  handleHover: function (val) {
     this.setState({ hover: val });
   },
-  render: function() {
+  render: function () {
     let tooltip;
     // || this.props.hex === '#967897'
     if (this.state.hover || this.props.hex === '#967897') {
@@ -71,7 +71,7 @@ export default React.createClass({
             //boxShadow: '0px 0px 2px black',
             border: '1px solid black',
             cursor: 'pointer',
-            margin: '0 auto'
+            margin: '0 auto',
           }}
         >
           {tooltip}
@@ -79,5 +79,5 @@ export default React.createClass({
         </div>
       </Col>
     );
-  }
+  },
 });

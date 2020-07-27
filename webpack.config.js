@@ -14,26 +14,26 @@ module.exports = {
     'workers/worker-math': path.resolve(
       __dirname,
       'app/js/workers/worker-math.js'
-    )
+    ),
   },
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/colorify/',
     filename: '[name].bundle.js',
-    globalObject: 'this'
+    globalObject: 'this',
   },
   serve: {
     add: (app, middleware, options) => {
       const historyOptions = {
         // ... see: https://github.com/bripkens/connect-history-api-fallback#options
         index: '/colorify/index.html',
-        verbose: true
+        verbose: true,
       };
       app.use(convert(history(historyOptions)));
     },
     devMiddleware: {
-      publicPath: '/colorify/'
-    }
+      publicPath: '/colorify/',
+    },
   },
 
   module: {
@@ -44,56 +44,56 @@ module.exports = {
         test: /\.less$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
           },
           { loader: 'css-loader', options: { url: false } },
           {
             loader: 'less-loader',
             options: {
               relativeUrls: false,
-              paths: [path.resolve(__dirname)]
-            }
-          }
-        ]
-      }
-    ]
+              paths: [path.resolve(__dirname)],
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'app/index.html'),
-      inject: false
+      inject: false,
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'app/index.html'),
       filename: '404.html',
-      inject: false
+      inject: false,
     }),
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, 'node_modules/bootstrap/dist/fonts/*'),
         to: path.resolve(__dirname, 'build/fonts/'),
-        flatten: true
+        flatten: true,
       },
       {
         from: path.resolve(__dirname, 'node_modules/font-awesome/fonts/*'),
         to: path.resolve(__dirname, 'build/fonts/'),
-        flatten: true
+        flatten: true,
       },
       {
         from: path.resolve(__dirname, 'app/img/**/*'),
-        to: path.resolve(__dirname, 'build/img/')
+        to: path.resolve(__dirname, 'build/img/'),
       },
       {
         from: path.resolve(__dirname, 'app/svg/**/*'),
-        to: path.resolve(__dirname, 'build/svg/')
+        to: path.resolve(__dirname, 'build/svg/'),
       },
       {
         from: path.resolve(__dirname, 'app/favicon.ico'),
-        to: path.resolve(__dirname, 'build/')
-      }
+        to: path.resolve(__dirname, 'build/'),
+      },
     ]),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
-  ]
+      filename: '[name].css',
+    }),
+  ],
 };

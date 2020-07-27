@@ -3,19 +3,19 @@ import { Row, Col } from 'react-bootstrap';
 import MathCol from './MathCol';
 
 export default React.createClass({
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
       type: 'RGB',
       flags: [1, 1, 1],
       labels: ['R', 'G', 'B'],
-      cols: []
+      cols: [],
     };
   },
-  render: function() {
+  render: function () {
     const $this = this;
     let on = [];
     let off = [];
-    this.props.flags.forEach(function(val, index) {
+    this.props.flags.forEach(function (val, index) {
       if (val) {
         on.push($this.props.type.substr(index, 1));
       } else {
@@ -28,7 +28,7 @@ export default React.createClass({
       <Row>
         <Col md={4} sm={6}>
           <h3 className="type-label">
-            {this.props.labels.map(function(label, i) {
+            {this.props.labels.map(function (label, i) {
               return (
                 <span key={i} className={$this.props.flags[i] ? 'on' : 'off'}>
                   {label}
@@ -39,7 +39,7 @@ export default React.createClass({
         </Col>
         <Col md={8} sm={6}>
           <Row>
-            {this.props.cols.map(function(col, i) {
+            {this.props.cols.map(function (col, i) {
               return (
                 <MathCol
                   key={col.fnName + i}
@@ -56,5 +56,5 @@ export default React.createClass({
         </Col>
       </Row>
     );
-  }
+  },
 });

@@ -6,23 +6,23 @@ import throttle from 'lodash.throttle';
 const throttleTime = 50;
 
 export default React.createClass({
-  getInitialState: function() {
+  getInitialState: function () {
     const $this = this;
     return {
       throttledUpdate: throttle(
-        function() {
+        function () {
           $this.forceUpdate();
         },
         throttleTime,
         { leading: false }
-      )
+      ),
     };
   },
-  shouldComponentUpdate: function() {
+  shouldComponentUpdate: function () {
     setTimeout(this.state.throttledUpdate, 0); // setting timeout of 0 is important!
     return false;
   },
-  buildSchemes: function() {
+  buildSchemes: function () {
     const schemes = [];
     let scheme;
     for (const schemeName in this.props.stats.schemes) {
@@ -44,7 +44,7 @@ export default React.createClass({
     }
     return schemes;
   },
-  render: function() {
+  render: function () {
     const schemes = this.buildSchemes();
     return (
       <div className="stat-display">
@@ -80,5 +80,5 @@ export default React.createClass({
         <br />
       </div>
     );
-  }
+  },
 });
