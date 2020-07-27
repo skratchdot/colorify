@@ -84,7 +84,7 @@ export default React.createClass({
   setHex: function($state) {
     const $this = this;
     ['hex1', 'hex2', 'farbtasticSetColor'].forEach(function(key) {
-      if (!$state.hasOwnProperty(key)) {
+      if (!Object.prototype.hasOwnProperty.call($state, key)) {
         $state[key] = $this.state[key];
       }
     });

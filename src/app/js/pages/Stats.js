@@ -83,7 +83,7 @@ export default React.createClass({
   },
   render: function () {
     let schemeColors = [this.state.stats.hex];
-    if (this.state.stats.schemes.hasOwnProperty(this.state.selectedScheme)) {
+    if (Object.prototype.hasOwnProperty.call(this.state.stats.schemes, this.state.selectedScheme)) {
       schemeColors = this.state.stats.schemes[this.state.selectedScheme];
     }
     return (

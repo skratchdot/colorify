@@ -102,7 +102,7 @@ export const combineColors = function (color1, color2, colorSpace, flags, fn) {
   let val;
   const oneColorArray = [colorSpace];
   if (typeof fn === 'string') {
-    fn = combinationFunctions.hasOwnProperty(fn)
+    fn = Object.prototype.hasOwnProperty.call(combinationFunctions, fn)
       ? combinationFunctions[fn]
       : (v1) => v1;
   }

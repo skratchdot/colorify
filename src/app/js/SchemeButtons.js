@@ -17,7 +17,7 @@ export default React.createClass({
         bsSize="xsmall"
         key="normal"
         className={
-          this.props.stats.schemes.hasOwnProperty(this.props.selectedScheme)
+          Object.prototype.hasOwnProperty.call(this.props.stats.schemes, this.props.selectedScheme)
             ? ''
             : 'active'
         }
@@ -28,7 +28,7 @@ export default React.createClass({
       </Button>
     );
     for (const schemeName in schemes) {
-      if (schemes.hasOwnProperty(schemeName)) {
+      if (Object.prototype.hasOwnProperty.call(schemes, schemeName)) {
         buttons.push(
           <Button
             bsStyle="default"

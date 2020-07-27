@@ -18,7 +18,7 @@ export default React.createClass({
     const type = this.props.type;
     if (typeof this.props.onColorChange === 'function' &&
 				typeof type === 'string' &&
-				values.hasOwnProperty(type)) {
+				Object.prototype.hasOwnProperty.call(values, type)) {
       newColor = this.props.color[values[type][0]]();
       newColor[values[type][1]] = parseFloat(e.target.value);
       newColor = onecolor(newColor);
@@ -31,7 +31,7 @@ export default React.createClass({
     const style = {};
     let info;
     let background;
-    if (typeof type === 'string' && values.hasOwnProperty(type)) {
+    if (typeof type === 'string' && Object.prototype.hasOwnProperty.call(values, type)) {
       info = values[type];
       value = this.props.color[info[0]]()[info[1]];
       background = [];

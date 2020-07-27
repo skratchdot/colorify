@@ -1,4 +1,3 @@
-/*globals self */
 export default function(fn) {
   if (typeof fn !== 'function') {
     fn = function() {};

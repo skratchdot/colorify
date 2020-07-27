@@ -95,7 +95,7 @@ export default React.createClass({
       left: 0
     };
     negAlpha = 1 - this.props.color.alpha();
-    if (this.props.stats.schemes.hasOwnProperty(this.props.selectedScheme)) {
+    if (Object.prototype.hasOwnProperty.call(this.props.stats.schemes, this.props.selectedScheme)) {
       schemeColors = this.props.stats.schemes[this.props.selectedScheme];
     }
     return (

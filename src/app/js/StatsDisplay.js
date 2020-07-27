@@ -26,7 +26,7 @@ export default React.createClass({
     const schemes = [];
     let scheme;
     for (const schemeName in this.props.stats.schemes) {
-      if (this.props.stats.schemes.hasOwnProperty(schemeName)) {
+      if (Object.prototype.hasOwnProperty.call(this.props.stats.schemes, schemeName)) {
         scheme = this.props.stats.schemes[schemeName];
         // add to scheme list
         schemes.push(
