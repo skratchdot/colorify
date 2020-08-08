@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* globals process */
 /* eslint no-console: 0, prefer-template: 0, strict: 0 */
 'use strict';
 const program = require('commander');

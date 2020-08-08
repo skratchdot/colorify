@@ -1,23 +1,25 @@
 module.exports = {
   env: {
     browser: true,
-    commonjs: true,
-    es6: true,
+    es2020: true,
+    node: true,
   },
-  extends: 'eslint:recommended',
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
+    ecmaVersion: 11,
     sourceType: 'module',
   },
   plugins: ['react'],
   rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    'no-unused-vars': 'off',
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
+    'no-unused-vars': 'warn',
+    'react/prop-types': 'off',
+    'react/no-deprecated': 'off',
+    'react/display-name': 'off',
+    'react/no-unescaped-entities': 'off',
+    'react/no-string-refs': 'off'
   },
 };
