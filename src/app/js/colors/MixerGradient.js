@@ -12,6 +12,7 @@ class MixerGradient extends Component {
   constructor(props) {
     super(props);
     const yPositions = this.getYPositions(this.props);
+    this.svgRef = React.createRef();
     this.svgPoint = null;
     this.state = {
       x1: 0,
@@ -24,7 +25,7 @@ class MixerGradient extends Component {
   componentDidMount() {
     //window.addEventListener('mousemove', this.handleMouseMove);
     window.addEventListener('mouseup', this.handleMouseUp);
-    this.svgPoint = this.refs.svgContainer.createSVGPoint();
+    this.svgPoint = this.svgRef.current.createSVGPoint();
   }
   componentWillReceiveProps(nextProps) {
     const yPositions = this.getYPositions(nextProps);
@@ -57,7 +58,7 @@ class MixerGradient extends Component {
       this.svgPoint.x = e.clientX;
       this.svgPoint.y = e.clientY;
       loc = this.svgPoint.matrixTransform(
-        this.refs.svgContainer.getScreenCTM().inverse()
+        this.svgRef.current.getScreenCTM().inverse()
       );
       this.state.isMoving.forEach(function (num) {
         newState[`y${num}`] = loc.y;
@@ -129,7 +130,7 @@ class MixerGradient extends Component {
     return (
       <div className={`mixer-gradient${this.props.isEditor ? ' editor' : ''}`}>
         <svg
-          ref="svgContainer"
+          ref={this.svgRef}
           viewBox="0 0 255 255"
           preserveAspectRatio="none"
           onMouseMove={this.handleMouseMove}

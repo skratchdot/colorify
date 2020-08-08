@@ -4,7 +4,6 @@ export default function(workerPath, handler) {
     const worker = new Worker(workerPath);
     let isExecuting = false;
     let pendingJob;
-    let numPosts = 0;
 
     // make sure handler is a function
     if (typeof handler !== 'function') {
@@ -14,7 +13,6 @@ export default function(workerPath, handler) {
     // worker.postMessage wrapper for debugging
     const postMessage = function(data) {
       worker.postMessage(data);
-      numPosts++;
     };
 
     // send pending job if needed, and call handler

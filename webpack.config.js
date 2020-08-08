@@ -22,7 +22,7 @@ module.exports = {
     globalObject: 'this',
   },
   serve: {
-    add: (app, middleware, options) => {
+    add: (app/*, middleware, options*/) => {
       const historyOptions = {
         // ... see: https://github.com/bripkens/connect-history-api-fallback#options
         index: '/colorify/index.html',

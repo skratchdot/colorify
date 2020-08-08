@@ -4,6 +4,7 @@ import $ from '../../../lib/farbtastic-jquery';
 class Farbtastic extends Component {
   constructor(props) {
     super(props);
+    this.pickerRef = React.createRef();
     this.picker = null;
     this.state = {
       callbackCalledOnce: false,
@@ -12,7 +13,7 @@ class Farbtastic extends Component {
   componentDidMount() {
     const $this = this;
     if (!$this.picker) {
-      $this.picker = $.farbtastic($this.refs.picker, {
+      $this.picker = $.farbtastic($this.pickerRef.current, {
         width: $this.props.width,
         height: $this.props.height,
         callback: function (hex) {
@@ -40,7 +41,7 @@ class Farbtastic extends Component {
   render() {
     return (
       <div className="farbastic-container">
-        <div ref="picker"></div>
+        <div ref={this.pickerRef}></div>
       </div>
     );
   }
