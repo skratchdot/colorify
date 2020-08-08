@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CirclePoint from './CirclePoint';
 import onecolor from 'onecolor';
 const diameter = 290;
@@ -10,19 +10,22 @@ const imagePattern = `
 	<image x="0" y="0" height="16" width="16" xlink:href="/colorify/img/alpha-background.png"></image>
 	</pattern>`;
 
-export default React.createClass({
-  componentDidMount: function() {
+class Circle extends Component {
+  constructor(props) {
+    super(props);
+    this.down = 0;
+  }
+  componentDidMount() {
     document.addEventListener('mousedown', this.onMouseDown);
     document.addEventListener('mouseup', this.onMouseUp);
     document.addEventListener('mousemove', this.onMouseMove);
-  },
-  componentWillUnmount: function() {
+  }
+  componentWillUnmount() {
     document.removeEventListener('mousedown', this.onMouseDown);
     document.removeEventListener('mouseup', this.onMouseUp);
     document.removeEventListener('mousemove', this.onMouseMove);
-  },
-  down: 0,
-  handleChange: function(e) {
+  }
+  handleChange = (e) => {
     let newColor;
     if (typeof this.props.onColorChange === 'function') {
       // http://www.engineeringtoolbox.com/converting-cartesian-polar-coordinates-d_1347.html
@@ -54,25 +57,25 @@ export default React.createClass({
       newColor = onecolor(newColor);
       this.props.onColorChange(newColor);
     }
-  },
-  onMouseDown: function(e) {
+  };
+  onMouseDown = (e) => {
     this.down++;
     if (e.target.id === 'color-wheel') {
       this.handleChange(e);
     }
-  },
-  onMouseUp: function(e) {
+  };
+  onMouseUp = (e) => {
     this.down--;
     if (e.target.id === 'color-wheel') {
       this.handleChange(e);
     }
-  },
-  onMouseMove: function(e) {
+  };
+  onMouseMove = (e) => {
     if (e.target.id === 'color-wheel' && this.down > 0) {
       this.handleChange(e);
     }
-  },
-  render: function() {
+  };
+  render() {
     let styleContainer;
     let stylePos;
     let negAlpha;
@@ -85,17 +88,22 @@ export default React.createClass({
       position: 'relative',
       width: diameter,
       height: diameter,
-      margin: '0 auto 10px'
+      margin: '0 auto 10px',
     };
     stylePos = {
       position: 'absolute',
       width: diameter,
       height: diameter,
       top: 0,
-      left: 0
+      left: 0,
     };
     negAlpha = 1 - this.props.color.alpha();
-    if (Object.prototype.hasOwnProperty.call(this.props.stats.schemes, this.props.selectedScheme)) {
+    if (
+      Object.prototype.hasOwnProperty.call(
+        this.props.stats.schemes,
+        this.props.selectedScheme
+      )
+    ) {
       schemeColors = this.props.stats.schemes[this.props.selectedScheme];
     }
     return (
@@ -128,4 +136,6 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
+
+export default Circle;
