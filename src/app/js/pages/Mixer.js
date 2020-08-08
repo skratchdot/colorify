@@ -6,6 +6,7 @@ import getPath from 'object-path-get';
 import Page from '../Page';
 import Farbtastic from '../colors/Farbtastic';
 import MixerGradient from '../colors/MixerGradient';
+import createReactClass from 'create-react-class';
 
 const getRgb = function (color) {
   return onecolor(color).css().replace(/[^0-9,]/gi, '').split(',').map(function (num) {
@@ -13,7 +14,7 @@ const getRgb = function (color) {
   });
 };
 
-export default React.createClass({
+export default createReactClass({
   mixins: [History],
   getInitialState: function () {
     let color1;

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Col, Table, Popover } from 'react-bootstrap';
 import { History } from 'react-router';
+import createReactClass from 'create-react-class';
 
-export default React.createClass({
+export default createReactClass({
   mixins: [History],
   getDefaultProps: function () {
     return {

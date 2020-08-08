@@ -10,6 +10,8 @@ import MathRow from '../MathRow';
 import MathHeaderCol from '../MathHeaderCol';
 import Page from '../Page';
 import Farbtastic from '../colors/Farbtastic';
+import createReactClass from 'create-react-class';
+
 const verticalText = function(text) {
   const nbsp = <span>&nbsp;</span>;
   return text.split('').map(function(item, i) {
@@ -31,7 +33,7 @@ const combinationFunctionNamesNormalized = combinationFunctionNames.map(
   }
 );
 
-export default React.createClass({
+export default createReactClass({
   mixins: [History],
   getInitialState: function() {
     let color1;

@@ -12,12 +12,13 @@ import SchemeButtons from '../SchemeButtons';
 import StatsDisplay from '../StatsDisplay';
 import StatsJsonPopup from '../StatsJsonPopup';
 import Tiles from '../Tiles';
+import createReactClass from 'create-react-class';
 
 const format = function (value, min, max, precision) {
   return parseFloat(((value * max) + min).toFixed(precision));
 };
 
-export default React.createClass({
+export default createReactClass({
   mixins: [History],
   getInitialState: function () {
     const searchText = getPath(this.props.params, 'color', '');
