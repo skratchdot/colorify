@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import { render } from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/Home';
 import AboutPage from './pages/About';
 import StatsPage from './pages/Stats';
@@ -9,41 +8,51 @@ import MixerPage from './pages/Mixer';
 import MathPage from './pages/Math';
 import NotFoundPage from './pages/NotFound';
 
-// setup pages
-const pages = {
-  home: HomePage,
-  about: AboutPage,
-  stats: StatsPage,
-  mixer: MixerPage,
-  math: MathPage,
-  notFound: NotFoundPage,
-};
-
 // setup app
 class App extends Component {
   render() {
-    return <div>{this.props.children}</div>;
+    return (
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path="/colorify">
+              <HomePage />
+            </Route>
+            <Route exact path="/colorify/about">
+              <AboutPage />
+            </Route>
+            <Route exact path="/colorify/stats">
+              <StatsPage />
+            </Route>
+            <Route exact path="/colorify/stats/:color">
+              <StatsPage />
+            </Route>
+            <Route exact path="/colorify/mixer">
+              <MixerPage />
+            </Route>
+            <Route exact path="/colorify/mixer/:color1">
+              <MixerPage />
+            </Route>
+            <Route exact path="/colorify/mixer/:color1/:color2">
+              <MixerPage />
+            </Route>
+            <Route exact path="/colorify/math">
+              <MathPage />
+            </Route>
+            <Route exact path="/colorify/math/:color1">
+              <MathPage />
+            </Route>
+            <Route exact path="/colorify/math/:color1/:color2">
+              <MathPage />
+            </Route>
+            <Route path="*">
+              <NotFoundPage />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    );
   }
 }
 
-// create and render routes
-const routes = (
-  <Route component={App}>
-    <Route path="/colorify" component={pages.home} />
-    <Route path="/colorify/about" component={pages.about} />
-    <Route path="/colorify/stats" component={pages.stats} />
-    <Route path="/colorify/stats/:color" component={pages.stats} />
-    <Route path="/colorify/mixer" component={pages.mixer} />
-    <Route path="/colorify/mixer/:color1" component={pages.mixer} />
-    <Route path="/colorify/mixer/:color1/:color2" component={pages.mixer} />
-    <Route path="/colorify/math" component={pages.math} />
-    <Route path="/colorify/math/:color1" component={pages.math} />
-    <Route path="/colorify/math/:color1/:color2" component={pages.math} />
-    <Route path="*" component={pages.notFound} />
-  </Route>
-);
-
-ReactDOM.render(
-  <Router history={createBrowserHistory()}>{routes}</Router>,
-  document.getElementById('app')
-);
+render(<App />, document.getElementById('app'));

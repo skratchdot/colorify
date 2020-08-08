@@ -1,35 +1,23 @@
 import React, { Component } from 'react';
 import { Col, Table, Popover } from 'react-bootstrap';
-import { History } from 'react-router';
-import createReactClass from 'create-react-class';
+import { withRouter } from 'react-router-dom';
 
-export default createReactClass({
-  mixins: [History],
-  getDefaultProps: function () {
-    return {
-      type: '',
-      flags: [1, 1, 1],
-      on: '',
-      off: '',
-      fnName: '',
-      hex: '#000000',
-    };
-  },
-  getInitialState: function () {
-    return {
+class MathCol extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       hover: false,
     };
-  },
-  handleClick: function () {
-    this.history.pushState(
-      null,
+  }
+  handleClick = () => {
+    this.props.history.push(
       `/colorify/stats/${this.props.hex.replace('#', '')}`
     );
-  },
-  handleHover: function (val) {
+  };
+  handleHover = (val) => {
     this.setState({ hover: val });
-  },
-  render: function () {
+  };
+  render() {
     let tooltip;
     // || this.props.hex === '#967897'
     if (this.state.hover || this.props.hex === '#967897') {
@@ -80,5 +68,16 @@ export default createReactClass({
         </div>
       </Col>
     );
-  },
-});
+  }
+}
+
+MathCol.defaultProps = {
+  type: '',
+  flags: [1, 1, 1],
+  on: '',
+  off: '',
+  fnName: '',
+  hex: '#000000',
+};
+
+export default withRouter(MathCol);

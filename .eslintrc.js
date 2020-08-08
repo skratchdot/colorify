@@ -20,6 +20,6 @@ module.exports = {
     'react/no-deprecated': 'off',
     'react/display-name': 'off',
     'react/no-unescaped-entities': 'off',
-    'react/no-string-refs': 'off'
+    'react/no-string-refs': 'off',
   },
 };

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
-import { History } from 'react-router';
 import onecolor from 'onecolor';
 import getPath from 'object-path-get';
 import * as colorify from '../../../lib/colorify';
@@ -10,11 +9,11 @@ import MathRow from '../MathRow';
 import MathHeaderCol from '../MathHeaderCol';
 import Page from '../Page';
 import Farbtastic from '../colors/Farbtastic';
-import createReactClass from 'create-react-class';
+import { withRouter } from 'react-router-dom';
 
-const verticalText = function(text) {
+const verticalText = function (text) {
   const nbsp = <span>&nbsp;</span>;
-  return text.split('').map(function(item, i) {
+  return text.split('').map(function (item, i) {
     return (
       <div key={i} style={{ lineHeight: '1.1em' }} className="math-header-text">
         {item === ' ' ? nbsp : item.toUpperCase()}
@@ -24,7 +23,7 @@ const verticalText = function(text) {
 };
 const combinationFunctionNames = colorify.getCombinationFunctionNames();
 const combinationFunctionNamesNormalized = combinationFunctionNames.map(
-  function(name) {
+  function (name) {
     const split = name.split('');
     while (split.length < 10) {
       split.unshift(' ');
@@ -33,100 +32,97 @@ const combinationFunctionNamesNormalized = combinationFunctionNames.map(
   }
 );
 
-export default createReactClass({
-  mixins: [History],
-  getInitialState: function() {
+class MathComp extends Component {
+  constructor(props) {
+    super(props);
     let color1;
     let color2;
-    color1 = onecolor(getPath(this.props.params, 'color1', '428bca'));
-    color2 = onecolor(getPath(this.props.params, 'color2', 'd9534f'));
-    return {
+    color1 = onecolor(getPath(this.props, 'match.params.color1', '428bca'));
+    color2 = onecolor(getPath(this.props, 'match.params.color2', 'd9534f'));
+    this.state = {
       hex1: color1.hex().toLowerCase(),
       hex2: color2.hex().toLowerCase(),
-      farbtasticSetColor: true
+      farbtasticSetColor: true,
     };
-  },
-  componentWillMount: function() {
+  }
+  componentWillMount() {
     const $this = this;
     if (!$this.worker) {
       // this line requires webpack with `worker-loader`
       $this.worker = new LastInWorker(
         '/colorify/workers/worker-math.bundle.js',
-        function(data) {
+        function (data) {
           $this.setState(data);
         }
       );
     }
-  },
-  componentDidMount: function() {
+  }
+  componentDidMount() {
     this.worker.exec(
       this.state.hex1,
       this.state.hex2,
       this.state.farbtasticSetColor
     );
-  },
-  shouldComponentUpdate: function(nextProps, nextState) {
+  }
+  shouldComponentUpdate(nextProps, nextState) {
     if (this.state === nextState) {
       return false;
     } else {
       return true;
     }
-  },
-  componentWillUpdate: function(nextProps, nextState) {
+  }
+  componentWillUpdate(nextProps, nextState) {
     const h1 = encodeURIComponent(nextState.hex1.replace('#', ''));
     const h2 = encodeURIComponent(nextState.hex2.replace('#', ''));
-    this.history.replaceState(null, `/colorify/math/${h1}/${h2}`);
-  },
-  componentWillUnmount: function() {
+    this.props.history.replace(`/colorify/math/${h1}/${h2}`);
+  }
+  componentWillUnmount() {
     if (this.worker) {
       this.worker.terminate();
       this.worker = null;
     }
-  },
-  setHex: function($state) {
+  }
+  setHex = ($state) => {
     const $this = this;
-    ['hex1', 'hex2', 'farbtasticSetColor'].forEach(function(key) {
+    ['hex1', 'hex2', 'farbtasticSetColor'].forEach(function (key) {
       if (!Object.prototype.hasOwnProperty.call($state, key)) {
         $state[key] = $this.state[key];
       }
     });
     $this.worker.exec($state.hex1, $state.hex2, $state.farbtasticSetColor);
-  },
-  getColorChangeHandler: function(index, isColorInput) {
-    const $this = this;
-    return function(e) {
-      const newState = {
-        farbtasticSetColor: isColorInput
-      };
-      const key = `hex${index}`;
-      newState[key] = isColorInput ? e.target.value : e;
-      if (newState[key] !== $this.state[key]) {
-        $this.setHex(newState);
-      }
-    };
-  },
-  randomHandler: function(indices) {
+  };
+  getColorChangeHandler = (index, isColorInput) => (e) => {
     const newState = {
-      farbtasticSetColor: true
+      farbtasticSetColor: isColorInput,
+    };
+    const key = `hex${index}`;
+    newState[key] = isColorInput ? e.target.value : e;
+    if (newState[key] !== this.state[key]) {
+      this.setHex(newState);
+    }
+  };
+  getRandomHandler = (indices) => () => {
+    const newState = {
+      farbtasticSetColor: true,
     };
     for (let i = 0; i < indices.length; i++) {
       newState[`hex${indices[i]}`] = onecolor([
         'RGB',
         Math.random(),
         Math.random(),
-        Math.random()
+        Math.random(),
       ]).hex();
     }
     this.setHex(newState);
-  },
-  swapHandler: function() {
+  };
+  swapHandler = () => {
     this.setHex({
       hex1: this.state.hex2,
       hex2: this.state.hex1,
-      farbtasticSetColor: true
+      farbtasticSetColor: true,
     });
-  },
-  render: function() {
+  };
+  render() {
     return (
       <Page pageName="Math">
         <Row>
@@ -146,7 +142,7 @@ export default createReactClass({
                 />
                 <Button
                   bsStyle="primary"
-                  onClick={this.randomHandler.bind(null, [1])}
+                  onClick={this.getRandomHandler([1])}
                 >
                   Randomize 1
                 </Button>
@@ -165,7 +161,7 @@ export default createReactClass({
                 />
                 <Button
                   bsStyle="primary"
-                  onClick={this.randomHandler.bind(null, [2])}
+                  onClick={this.getRandomHandler([2])}
                 >
                   Randomize 2
                 </Button>
@@ -175,7 +171,7 @@ export default createReactClass({
               <Col xs={12}>
                 <Button
                   bsStyle="primary"
-                  onClick={this.randomHandler.bind(null, [1, 2])}
+                  onClick={this.getRandomHandler([1, 2])}
                 >
                   Randomize Both
                 </Button>
@@ -203,7 +199,7 @@ export default createReactClass({
               />
             </Row>
             <Row className="math-header-row">
-              {combinationFunctionNamesNormalized.map(function(name, i) {
+              {combinationFunctionNamesNormalized.map(function (name, i) {
                 return (
                   <Col key={i} xs={1}>
                     {verticalText(name)}
@@ -219,7 +215,7 @@ export default createReactClass({
           values={getPath(this.state, 'valuesRGB')}
         />
         <div>
-          {getPath(this.state, 'RGB', []).map(function(row, i) {
+          {getPath(this.state, 'RGB', []).map(function (row, i) {
             return (
               <MathRow
                 key={`rgbRow-${i}`}
@@ -237,7 +233,7 @@ export default createReactClass({
           values={getPath(this.state, 'valuesHSL')}
         />
         <div>
-          {getPath(this.state, 'HSL', []).map(function(row, i) {
+          {getPath(this.state, 'HSL', []).map(function (row, i) {
             return (
               <MathRow
                 key={`hslRow-${i}`}
@@ -253,4 +249,6 @@ export default createReactClass({
       </Page>
     );
   }
-});
+}
+
+export default withRouter(MathComp);

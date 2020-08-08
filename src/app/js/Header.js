@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Row, Col, Nav } from 'react-bootstrap';
 
 class Header extends Component {
   isLinkActive = (name) => {
     return this.props.active === name ? 'active' : '';
-  }
+  };
   render() {
+    const { active } = this.props;
+    const HeaderLink = ({ to, pageName }) => {
+      const className = active === pageName ? 'active' : '';
+      return (
+        <li className={className}>
+          <Link to={to}>{pageName}</Link>
+        </li>
+      );
+    };
     return (
       <div>
         <Row className="header">
@@ -20,21 +29,11 @@ class Header extends Component {
           </Col>
           <Col md={6}>
             <Nav bsStyle="pills">
-              <li key="home" className={this.isLinkActive('Home')}>
-                <Link to="/colorify">Home</Link>
-              </li>
-              <li key="about" className={this.isLinkActive('About')}>
-                <Link to="/colorify/about">About</Link>
-              </li>
-              <li key="stats" className={this.isLinkActive('Stats')}>
-                <Link to="/colorify/stats">Stats</Link>
-              </li>
-              <li key="mixer" className={this.isLinkActive('Mixer')}>
-                <Link to="/colorify/mixer">Mixer</Link>
-              </li>
-              <li key="math" className={this.isLinkActive('Math')}>
-                <Link to="/colorify/math">Math</Link>
-              </li>
+              <HeaderLink to="/colorify" pageName="Home" />
+              <HeaderLink to="/colorify/about" pageName="About" />
+              <HeaderLink to="/colorify/stats" pageName="Stats" />
+              <HeaderLink to="/colorify/mixer" pageName="Mixer" />
+              <HeaderLink to="/colorify/math" pageName="Math" />
             </Nav>
           </Col>
         </Row>
