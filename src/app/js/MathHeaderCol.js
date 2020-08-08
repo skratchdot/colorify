@@ -1,15 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Col } from 'react-bootstrap';
 
-export default React.createClass({
-  getDefaultProps: function () {
-    return {
-      rgbaString: 'rgba(255, 255, 255, 0)',
-      label: '',
-      hex: '#000000',
-    };
-  },
-  render: function () {
+class MathHeaderCol extends Component {
+  render() {
     const start = this.props.rgbaString;
     const end = this.props.rgbaString.replace('1)', '0.3)');
     return (
@@ -48,5 +41,13 @@ export default React.createClass({
         </div>
       </Col>
     );
-  },
-});
+  }
+}
+
+MathHeaderCol.defaultProps = {
+  rgbaString: 'rgba(255, 255, 255, 0)',
+  label: '',
+  hex: '#000000',
+};
+
+export default MathHeaderCol;

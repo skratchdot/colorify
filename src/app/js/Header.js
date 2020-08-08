@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Row, Col, Nav } from 'react-bootstrap';
 
-export default React.createClass({
-  isLinkActive: function (name) {
+class Header extends Component {
+  isLinkActive = (name) => {
     return this.props.active === name ? 'active' : '';
-  },
-  render: function () {
+  }
+  render() {
     return (
       <div>
         <Row className="header">
@@ -45,5 +45,7 @@ export default React.createClass({
         </Row>
       </div>
     );
-  },
-});
+  }
+}
+
+export default Header;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
@@ -20,11 +20,11 @@ const pages = {
 };
 
 // setup app
-const App = React.createClass({
+class App extends Component {
   render() {
     return <div>{this.props.children}</div>;
-  },
-});
+  }
+}
 
 // create and render routes
 const routes = (

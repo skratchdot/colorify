@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import onecolor from 'onecolor';
 
-export default React.createClass({
-  handleColorChange: function (e) {
+class Tiles extends Component {
+  handleColorChange = (e) => {
     if (this.props.onColorChange) {
       this.props.onColorChange(onecolor(e.target.style.backgroundColor));
     }
-  },
-  render: function () {
+  }
+  render() {
     const tiles = [];
     for (let i = 0; i < this.props.scheme.length; i++) {
       let hex;
@@ -40,5 +40,7 @@ export default React.createClass({
       );
     }
     return <div className="tile-container">{tiles}</div>;
-  },
-});
+  }
+}
+
+export default Tiles;

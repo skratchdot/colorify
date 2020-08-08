@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ColorSpaces from './ColorSpaces';
 import Tiles from './Tiles';
 import { friendlyName } from './helpers.js';
 import throttle from 'lodash.throttle';
 const throttleTime = 50;
 
-export default React.createClass({
-  getInitialState: function () {
+class StatsDisplay extends Component {
+  constructor(props) {
+    super(props);
     const $this = this;
-    return {
+    this.state = {
       throttledUpdate: throttle(
         function () {
           $this.forceUpdate();
@@ -17,16 +18,21 @@ export default React.createClass({
         { leading: false }
       ),
     };
-  },
-  shouldComponentUpdate: function () {
+  }
+  shouldComponentUpdate() {
     setTimeout(this.state.throttledUpdate, 0); // setting timeout of 0 is important!
     return false;
-  },
-  buildSchemes: function () {
+  }
+  buildSchemes = () => {
     const schemes = [];
     let scheme;
     for (const schemeName in this.props.stats.schemes) {
-      if (Object.prototype.hasOwnProperty.call(this.props.stats.schemes, schemeName)) {
+      if (
+        Object.prototype.hasOwnProperty.call(
+          this.props.stats.schemes,
+          schemeName
+        )
+      ) {
         scheme = this.props.stats.schemes[schemeName];
         // add to scheme list
         schemes.push(
@@ -43,8 +49,8 @@ export default React.createClass({
       }
     }
     return schemes;
-  },
-  render: function () {
+  }
+  render() {
     const schemes = this.buildSchemes();
     return (
       <div className="stat-display">
@@ -80,5 +86,7 @@ export default React.createClass({
         <br />
       </div>
     );
-  },
-});
+  }
+}
+
+export default StatsDisplay;

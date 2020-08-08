@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
 import Header from './Header';
 import Footer from './Footer';
 import GithubCorner from './GithubCorner';
 
-export default React.createClass({
-  render: function () {
+class Page extends Component {
+  render() {
     return (
       <div className={`page-${this.props.pageName}`}>
         <Grid>
@@ -16,5 +16,7 @@ export default React.createClass({
         </Grid>
       </div>
     );
-  },
-});
+  }
+}
+
+export default Page;

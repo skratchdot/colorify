@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import $ from '../../../lib/farbtastic-jquery';
 
 export default React.createClass({

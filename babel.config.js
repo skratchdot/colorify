@@ -8,5 +8,5 @@ module.exports = {
     ],
     '@babel/preset-react',
   ],
-  plugins: ['add-module-exports'],
+  plugins: ['add-module-exports', '@babel/plugin-proposal-class-properties'],
 };

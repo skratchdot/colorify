@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import onecolor from 'onecolor';
 
 const getRgbCss = function (rgb, value, index) {
@@ -8,45 +8,37 @@ const getRgbCss = function (rgb, value, index) {
 		${index === 2 ? value : rgb[2]})`;
 };
 
-export default React.createClass({
-  getDefaultProps: function () {
-    return {
-      rgb1: [],
-      rgb2: [],
-      handleHexChanges: null,
-      index: null,
-      isEditor: true
-    };
-  },
-  getInitialState: function () {
+class MixerGradient extends Component {
+  constructor(props) {
+    super(props);
     const yPositions = this.getYPositions(this.props);
-    return {
+    this.svgPoint = null;
+    this.state = {
       x1: 0,
       x2: 255,
       y1: yPositions.y1,
       y2: yPositions.y2,
-      isMoving: []
+      isMoving: [],
     };
-  },
-  componentDidMount: function () {
+  }
+  componentDidMount() {
     //window.addEventListener('mousemove', this.handleMouseMove);
     window.addEventListener('mouseup', this.handleMouseUp);
     this.svgPoint = this.refs.svgContainer.createSVGPoint();
-  },
-  componentWillReceiveProps: function (nextProps) {
+  }
+  componentWillReceiveProps(nextProps) {
     const yPositions = this.getYPositions(nextProps);
     this.setState({
       y1: yPositions.y1,
-      y2: yPositions.y2
+      y2: yPositions.y2,
     });
-  },
-  componentWillUnmount: function () {
+  }
+  componentWillUnmount() {
     //window.removeEventListener('mousemove', this.handleMouseMove);
     window.removeEventListener('mouseup', this.handleMouseUp);
     this.svgPoint = null;
-  },
-  svgPoint: null,
-  getYPositions: function (props) {
+  }
+  getYPositions = (props) => {
     let y1 = 0;
     let y2 = 0;
     if (props.index >= 0 || props.index <= 2) {
@@ -55,10 +47,10 @@ export default React.createClass({
     }
     return {
       y1: y1,
-      y2: y2
+      y2: y2,
     };
-  },
-  handleMouseMove: function (e) {
+  };
+  handleMouseMove = (e) => {
     let loc;
     const newState = {};
     if (this.state.isMoving.length && this.svgPoint !== null) {
@@ -72,23 +64,31 @@ export default React.createClass({
       });
       this.setState(newState);
     }
-  },
-  handleMouseDown: function (num) {
-    this.setState({isMoving: [num]});
-  },
-  handleMouseUp: function () {
+  }
+  handleMouseDown = (num) => {
+    this.setState({ isMoving: [num] });
+  }
+  handleMouseUp = () => {
     let hex1;
     let hex2;
     if (this.state.isMoving.length) {
       if (typeof this.props.handleHexChanges === 'function') {
-        hex1 = onecolor(getRgbCss(this.props.rgb1, this.state.y1, this.props.index)).hex().toLowerCase();
-        hex2 = onecolor(getRgbCss(this.props.rgb2, this.state.y2, this.props.index)).hex().toLowerCase();
+        hex1 = onecolor(
+          getRgbCss(this.props.rgb1, this.state.y1, this.props.index)
+        )
+          .hex()
+          .toLowerCase();
+        hex2 = onecolor(
+          getRgbCss(this.props.rgb2, this.state.y2, this.props.index)
+        )
+          .hex()
+          .toLowerCase();
         this.props.handleHexChanges(hex1, hex2);
       }
-      this.setState({isMoving: []});
+      this.setState({ isMoving: [] });
     }
-  },
-  render: function () {
+  }
+  render() {
     const $this = this;
     let id;
     const gradients = [];
@@ -97,28 +97,46 @@ export default React.createClass({
     for (let i = 0; i < max; i++) {
       id = `mixer-gradient-${$this.props.id}-${i}`;
       gradients.push(
-        <linearGradient id={id} key={`gradient-${i}`} x1="0%" y1="50%" x2="100%" y2="50%">
-          <stop offset="0%" stopColor={getRgbCss($this.props.rgb1, i, $this.props.index)} />
-          <stop offset="100%" stopColor={getRgbCss($this.props.rgb2, i, $this.props.index)} />
+        <linearGradient
+          id={id}
+          key={`gradient-${i}`}
+          x1="0%"
+          y1="50%"
+          x2="100%"
+          y2="50%"
+        >
+          <stop
+            offset="0%"
+            stopColor={getRgbCss($this.props.rgb1, i, $this.props.index)}
+          />
+          <stop
+            offset="100%"
+            stopColor={getRgbCss($this.props.rgb2, i, $this.props.index)}
+          />
         </linearGradient>
       );
       rects.push(
-        <rect key={`rect-${i}`} fill={`url(#${id})`}
-          width="255" height={256 - max}
-          x="0" y={i}
+        <rect
+          key={`rect-${i}`}
+          fill={`url(#${id})`}
+          width="255"
+          height={256 - max}
+          x="0"
+          y={i}
         />
       );
     }
     return (
       <div className={`mixer-gradient${this.props.isEditor ? ' editor' : ''}`}>
-        <svg ref="svgContainer" viewBox="0 0 255 255" preserveAspectRatio="none" onMouseMove={this.handleMouseMove}>
-          <defs>
-            {gradients}
-          </defs>
-          <g>
-            {rects}
-          </g>
-          <g style={{display: $this.props.index === null ? 'none' : 'block'}}>
+        <svg
+          ref="svgContainer"
+          viewBox="0 0 255 255"
+          preserveAspectRatio="none"
+          onMouseMove={this.handleMouseMove}
+        >
+          <defs>{gradients}</defs>
+          <g>{rects}</g>
+          <g style={{ display: $this.props.index === null ? 'none' : 'block' }}>
             <line
               x1={this.state.x1}
               x2={this.state.x2}
@@ -127,10 +145,18 @@ export default React.createClass({
               stroke="black"
               strokeWidth="1"
             />
-            <ellipse cx={this.state.x1} cy={this.state.y1} rx="1" ry="8"
+            <ellipse
+              cx={this.state.x1}
+              cy={this.state.y1}
+              rx="1"
+              ry="8"
               onMouseDown={this.handleMouseDown.bind(null, 1)}
             />
-            <ellipse cx={this.state.x2} cy={this.state.y2} rx="1" ry="8"
+            <ellipse
+              cx={this.state.x2}
+              cy={this.state.y2}
+              rx="1"
+              ry="8"
               onMouseDown={this.handleMouseDown.bind(null, 2)}
             />
           </g>
@@ -138,4 +164,14 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
+
+MixerGradient.defaultProps = {
+  rgb1: [],
+  rgb2: [],
+  handleHexChanges: null,
+  index: null,
+  isEditor: true,
+};
+
+export default MixerGradient;

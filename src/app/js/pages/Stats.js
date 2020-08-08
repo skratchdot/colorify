@@ -2,7 +2,7 @@ import colorStats from 'color-stats';
 import onecolor from 'onecolor';
 import getPath from 'object-path-get';
 import { History } from 'react-router';
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col, Button, Label, Glyphicon } from 'react-bootstrap';
 import Page from '../Page';
 import Rect from '../colors/Rect';

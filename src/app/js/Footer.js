@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import SocialButtons from './SocialButtons';
 
-export default React.createClass({
-  render: function () {
+class Footer extends Component {
+  render() {
     const fullYear = new Date().getFullYear();
     return (
       <div>
@@ -24,5 +24,7 @@ export default React.createClass({
         <br />
       </div>
     );
-  },
-});
+  }
+}
+
+export default Footer;

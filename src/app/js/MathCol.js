@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Col, Table, Popover } from 'react-bootstrap';
 import { History } from 'react-router';
 

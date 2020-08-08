@@ -3,15 +3,15 @@
  * https://github.com/dr-dimitru/SHB-js
  *
  */
-import React from 'react';
+import React, { Component } from 'react';
 import getSocialButtonLib from '../../lib/shb';
 
 const id = 'social-button-container';
 const title = 'Colorify: a collection of color tools';
 const SHB = getSocialButtonLib();
 
-export default React.createClass({
-  componentDidMount: function () {
+class SocialButtons extends Component {
+  componentDidMount() {
     SHB.build({
       elementID: id,
       pref: {
@@ -36,12 +36,14 @@ export default React.createClass({
         },
       },
     });
-  },
-  render: function () {
+  }
+  render() {
     return (
       <div id={id}>
         <strong>Share: &nbsp;</strong>
       </div>
     );
-  },
-});
+  }
+}
+
+export default SocialButtons;

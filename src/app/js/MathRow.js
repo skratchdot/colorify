@@ -1,17 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import MathCol from './MathCol';
 
-export default React.createClass({
-  getDefaultProps: function () {
-    return {
-      type: 'RGB',
-      flags: [1, 1, 1],
-      labels: ['R', 'G', 'B'],
-      cols: [],
-    };
-  },
-  render: function () {
+class MathRow extends Component {
+  render() {
     const $this = this;
     let on = [];
     let off = [];
@@ -56,5 +48,14 @@ export default React.createClass({
         </Col>
       </Row>
     );
-  },
-});
+  }
+}
+
+MathRow.defaultProps = {
+  type: 'RGB',
+  flags: [1, 1, 1],
+  labels: ['R', 'G', 'B'],
+  cols: [],
+};
+
+export default MathRow;

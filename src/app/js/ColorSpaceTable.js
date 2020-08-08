@@ -1,15 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import getPath from 'object-path-get';
 
-export default React.createClass({
-  getDefaultProps: function () {
-    return {
-      title: 'RGB',
-      values: [],
-    };
-  },
-  render: function () {
+class ColorSpaceTable extends Component {
+  render() {
     return (
       <div className="math-table-container">
         <Table className="math-table">
@@ -40,5 +34,12 @@ export default React.createClass({
         </Table>
       </div>
     );
-  },
-});
+  }
+}
+
+ColorSpaceTable.defaultProps = {
+  title: 'RGB',
+  values: [],
+};
+
+export default ColorSpaceTable;

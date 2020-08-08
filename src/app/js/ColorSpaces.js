@@ -1,14 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col, Table } from 'react-bootstrap';
 import getPath from 'object-path-get';
 
-export default React.createClass({
-  getDefaultProps: function () {
-    return {
-      stats: {},
-    };
-  },
-  render: function () {
+class ColorSpaces extends Component {
+  render() {
     const spaces = getPath(this.props.stats, 'lib.colorConvert', {});
     const color = getPath(this.props.stats, 'lib.color', {});
     return (
@@ -96,5 +91,11 @@ export default React.createClass({
         </Col>
       </Row>
     );
-  },
-});
+  }
+}
+
+ColorSpaces.defaultProps = {
+  stats: {},
+};
+
+export default ColorSpaces;

@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { friendlyName } from './helpers.js';
 
-export default React.createClass({
-  handleSchemeChange: function (scheme) {
+class SchemeButtons extends Component {
+  handleSchemeChange = (scheme) => {
     if (typeof this.props.onSchemeChange === 'function') {
       this.props.onSchemeChange(scheme);
     }
-  },
-  render: function () {
+  }
+  render() {
     const buttons = [];
     const schemes = this.props.stats.schemes;
     buttons.push(
@@ -17,7 +17,10 @@ export default React.createClass({
         bsSize="xsmall"
         key="normal"
         className={
-          Object.prototype.hasOwnProperty.call(this.props.stats.schemes, this.props.selectedScheme)
+          Object.prototype.hasOwnProperty.call(
+            this.props.stats.schemes,
+            this.props.selectedScheme
+          )
             ? ''
             : 'active'
         }
@@ -44,5 +47,7 @@ export default React.createClass({
       }
     }
     return <div id="scheme-buttons">{buttons}</div>;
-  },
-});
+  }
+}
+
+export default SchemeButtons;

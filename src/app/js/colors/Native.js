@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import onecolor from 'onecolor';
 
-export default React.createClass({
-  onColorChange: function (e) {
+class Native extends Component {
+  onColorChange = (e) => {
     if (this.props.onColorChange) {
       const color = onecolor(e.target.value);
       this.props.onColorChange(color);
     }
-  },
-  render: function () {
+  }
+  render() {
     let color = onecolor(this.props.color);
     if (!color) {
       color = onecolor('#000000');
     }
     return (
-      <input {...this.props}
+      <input
+        {...this.props}
         type="color"
         value={color.hex()}
         onChange={this.onColorChange}
@@ -22,4 +23,6 @@ export default React.createClass({
       />
     );
   }
-});
+}
+
+export default Native;

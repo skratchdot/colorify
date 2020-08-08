@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col, Well } from 'react-bootstrap';
 import Page from '../Page';
 import { main, links } from '../Readme';
 
-export default React.createClass({
-  render: function() {
+class About extends Component {
+  render() {
     return (
       <Page pageName="About">
         <Row>
@@ -18,4 +18,6 @@ export default React.createClass({
       </Page>
     );
   }
-});
+}
+
+export default About;

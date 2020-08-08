@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { History } from 'react-router';
 import onecolor from 'onecolor';
