@@ -571,6 +571,7 @@ Now browse to the app at [http://localhost:8080/colorify](http://localhost:8080/
 - [GradientsGuru](http://gradientsguru.com/)
 - [Eggradients](https://www.eggradients.com/)
 - [Web Gradients](https://webgradients.com/)
+- [Image Color Picker](https://image-color.com/)
 - [Color Zebra](https://mangara.github.io/Color-Zebra/)
 - [Accessible Color Generator](https://learnui.design/tools/accessible-color-generator.html)
 
