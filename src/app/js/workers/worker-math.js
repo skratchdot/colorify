@@ -16,10 +16,10 @@ const getFlags = function() {
   }
   return ret;
 };
-const getValues = function(color1, color2, fnName) {
+const getStringValues = function(color1, color2, fnName) {
   const regex = /^.*\(([^,]+),([^,]+),([^,]+)(.*\).*)$/;
-  const values1 = color1[fnName]().match(regex);
-  const values2 = color2[fnName]().match(regex);
+  const values1 = color1[fnName]().string().match(regex);
+  const values2 = color2[fnName]().string().match(regex);
   return [values1, values2];
 };
 
@@ -35,10 +35,10 @@ lastInWorkerHelper(function(hex1, hex2, farbtasticSetColor) {
   const color2 = colorify.lib.onecolor(hex2);
   const libColor1 = colorify.lib.color(hex1);
   const libColor2 = colorify.lib.color(hex2);
-  data.rgbaString1 = libColor1.rgbaString();
-  data.rgbaString2 = libColor2.rgbaString();
-  data.valuesRGB = getValues(libColor1, libColor2, 'rgbString');
-  data.valuesHSL = getValues(libColor1, libColor2, 'hslString');
+  data.rgbString1 = libColor1.rgb().string();
+  data.rgbString2 = libColor2.rgb().string();
+  data.valuesRGB = getStringValues(libColor1, libColor2, 'rgb');
+  data.valuesHSL = getStringValues(libColor1, libColor2, 'hsl');
   ['RGB', 'HSL'].map(function(colorSpace) {
     data[colorSpace] = [];
     getFlags().forEach(function(flags) {

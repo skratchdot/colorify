@@ -75,16 +75,10 @@ class ColorSpaces extends Component {
                 <td>{color.rgbString}</td>
               </tr>
               <tr>
-                <td>{color.rgbaString}</td>
-              </tr>
-              <tr>
                 <td>{color.percentString}</td>
               </tr>
               <tr>
                 <td>{color.hslString}</td>
-              </tr>
-              <tr>
-                <td>{color.hslaString}</td>
               </tr>
             </tbody>
           </Table>

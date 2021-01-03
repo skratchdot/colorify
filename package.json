@@ -38,11 +38,11 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "color": "^0.10.1",
+    "color": "^3.1.3",
     "color-blind": "^0.1.1",
     "color-harmony": "^0.3.0",
     "color-quantize": "^0.1.1",
-    "color-scheme": "0.0.5",
+    "color-scheme": "^1.0.1",
     "color-stats": "^0.5.0",
     "colorconverter": "^0.1.1",
     "colorname": "^1.2.0",
@@ -51,7 +51,7 @@
     "cycle": "^1.0.3",
     "jsonfn": "^0.31.0",
     "object-path-get": "^1.0.1",
-    "onecolor": "^2.5.0",
+    "onecolor": "^3.1.0",
     "random-seed": "^0.3.0"
   },
   "devDependencies": {

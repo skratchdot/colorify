@@ -3,8 +3,8 @@ import { Col } from 'react-bootstrap';
 
 class MathHeaderCol extends Component {
   render() {
-    const start = this.props.rgbaString;
-    const end = this.props.rgbaString.replace('1)', '0.3)');
+    const start = this.props.rgbString;
+    const end = this.props.rgbString.replace('1)', '0.3)');
     return (
       <Col xs={6}>
         <div
@@ -45,7 +45,7 @@ class MathHeaderCol extends Component {
 }
 
 MathHeaderCol.defaultProps = {
-  rgbaString: 'rgba(255, 255, 255, 0)',
+  rgbString: 'rgba(255, 255, 255, 0)',
   label: '',
   hex: '#000000',
 };

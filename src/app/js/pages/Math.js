@@ -190,12 +190,12 @@ class MathComp extends Component {
               <MathHeaderCol
                 label="Color 1:"
                 hex={this.state.hex1}
-                rgbaString={getPath(this.state, 'rgbaString1')}
+                rgbString={getPath(this.state, 'rgbString1')}
               />
               <MathHeaderCol
                 label="Color 2:"
                 hex={this.state.hex2}
-                rgbaString={getPath(this.state, 'rgbaString2')}
+                rgbString={getPath(this.state, 'rgbString2')}
               />
             </Row>
             <Row className="math-header-row">
